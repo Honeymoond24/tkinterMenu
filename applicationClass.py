@@ -1,4 +1,5 @@
 from tkinter import *
+
 from foodcard import Foodcard
 from menu import AppMenu
 import tkinter.ttk as ttk
@@ -17,9 +18,11 @@ class Application(Tk):
         self.mainFrame_side = Frame(self.fra , width=200, height=800, bg="Grey")
         self.mainFrame_ribbon = Frame(self.fra , width=1100, height=50, bg="Green")
         self.mainFrame_content = Frame(self.fra , width=900, height=750, bg="Red")
-
+        
         self.menuSide = SideBar(self.mainFrame_side)
-        # self.cards=Foodcard(self.mainFrame_content)
+        self.cards=Foodcard(self.mainFrame_content)
+        
+
         self.fra.pack()
         self.mainFrame_side.pack(side=LEFT)
         self.mainFrame_ribbon.pack(side=TOP)
