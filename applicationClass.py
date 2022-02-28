@@ -19,7 +19,7 @@ class Application(Tk):
         self.mainFrame_content = Frame(self.fra , width=900, height=750, bg="Red")
 
         self.menuSide = SideBar(self.mainFrame_side)
-        #self.cards=Foodcard(self.mainFrame_content)
+        # self.cards=Foodcard(self.mainFrame_content)
         self.fra.pack()
         self.mainFrame_side.pack(side=LEFT)
         self.mainFrame_ribbon.pack(side=TOP)
