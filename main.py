@@ -1,4 +1,5 @@
 from applicationClass import Application
 
-rMenu = Application()
-rMenu.start()
+if __name__ == "__main__":
+    rMenu = Application()
+    rMenu.start()
