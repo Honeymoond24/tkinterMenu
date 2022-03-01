@@ -26,7 +26,7 @@ class Card(tk.Frame):
             ) 
 
 
-        label = tk.Label(self.cardframe,background='#FFA577',foreground= "#896E69", text=self.lable_text, font=controller.title_font)
+        label = tk.Label(self.cardframe,background='#FD974F',foreground= "#805A3B", text=self.lable_text, font=controller.title_font)
         label.grid(column=1,row=0)
         button1 = tk.Button(self.cardframe, text="test", command=lambda: controller.show_frame("PageOne"),
                              background="#555",  # фоновый цвет кнопки
