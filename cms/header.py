@@ -33,7 +33,8 @@ class Header(tk.Frame):
                             )
 
         # layout all of the main containers
-        self.parent.grid_rowconfigure(1, weight=1)
+        self.parent.grid_columnconfigure(0, weight=1)
+        self.parent.grid_columnconfigure(1, weight=1)
         self.parent.grid_columnconfigure(2, weight=1)
 
         self.grid(row=0, sticky="EW")

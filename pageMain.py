@@ -13,7 +13,7 @@ class PageMain(tk.Frame):
         # Фреймы, верстка
         top_frame = Frame(self)
         Header(top_frame, self.controller)
-        center = Frame(self, bg='gray2', pady=3)
+        center = Frame(self, bg='#FEF2E4', pady=3)
 
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
