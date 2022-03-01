@@ -10,7 +10,7 @@ class FoodCard(tk.Frame):
         self.controller = controller
         self.label_text = label_text
         self.card_frame = tk.Frame(self, padx="10", pady="8", background='#FD974F', highlightbackground="#805A3B",
-                                  highlightthickness=1, bd=0, width=16)
+                                   highlightthickness=1, bd=0, width=16)
 
         # canvas = Canvas(
         #     self.card_frame,
