@@ -15,12 +15,24 @@ class PageCard(tk.Frame):
 
         top_frame = Frame(self, bg='cyan', pady=3)
         Header(top_frame, self.controller)
-        center = Frame(self, bg='gray2', pady=3)
-       
+        
+        center = Frame(self, bg='white', pady=3)
+        
+        self.ph_img = tk.PhotoImage(file='assets/111.png').subsample(15,15)
+    
+        self.image = Button(center, image=self.ph_img, relief='flat')
+        self.image.pack(side=LEFT)
+
+        self.title = Label(center, text="Какое-то блюдо", font=(20))
+        self.descritption = Label(center, text="Описание какого-то блюда", font=(20))
+
+        self.title.pack()
+        self.descritption.pack()
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
         self.parent.grid_columnconfigure(0, weight=1)
 
+        
         top_frame.grid(row=0, sticky="ns")
         center.grid(row=1, sticky="nsew")
         
