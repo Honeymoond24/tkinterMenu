@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import *
 
+
 class PageMain(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -17,6 +18,7 @@ class PageMain(tk.Frame):
         button2 = tk.Button(top_frame, text="Go to Page One", command=lambda: controller.show_frame("PageOne"))
         button3 = tk.Button(top_frame, text="Go to Page Two", command=lambda: controller.show_frame("PageTwo"))
         button4 = tk.Button(top_frame, text="About", command=lambda: controller.show_frame("PageAbout"))
+
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
         self.parent.grid_columnconfigure(0, weight=1)
@@ -26,25 +28,11 @@ class PageMain(tk.Frame):
         btm_frame.grid(row=3, sticky="ew")
         btm_frame2.grid(row=4, sticky="ew")
 
-        label.grid(row=0, column=0,  sticky="nsew")
-        button1.grid(row=0, column=1,  sticky="nsew")
-        button2.grid(row=0, column=2,  sticky="nsew")
-        button3.grid(row=0, column=3,  sticky="nsew")
-        button4.grid(row=0, column=4,  sticky="nsew")
-
-        # create the widgets for the top frame
-        # model_label = Label(top_frame, text='Model Dimensions')
-        # width_label = Label(top_frame, text='Width:')
-        # length_label = Label(top_frame, text='Length:')
-        # entry_W = Entry(top_frame, background="pink")
-        # entry_L = Entry(top_frame, background="orange")
-
-        # layout the widgets in the top frame
-        # model_label.grid(row=0, columnspan=3)
-        # width_label.grid(row=1, column=0)
-        # length_label.grid(row=1, column=2)
-        # entry_W.grid(row=1, column=1)
-        # entry_L.grid(row=1, column=3)
+        # label.grid(row=0, column=0,  sticky="nsew")
+        button1.grid(row=0, column=1, sticky="nsew")
+        button2.grid(row=0, column=2, sticky="nsew")
+        button3.grid(row=0, column=3, sticky="nsew")
+        button4.grid(row=0, column=4, sticky="nsew")
 
         # create the center widgets
         center.grid_rowconfigure(0, weight=1)
