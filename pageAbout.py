@@ -7,7 +7,7 @@ class PageAbout(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.controller = controller
         label1 = tk.Label(self,
-                          text="Данная программа была разработана \nв рамках лабораторной работы 2.\n"
+                          text="Данная программа была разработана \nв рамках лабораторной работы 2.\n\n"
                                "Работу выполнили студенты группы АПО-19:\n"
                                "Жантурин Д.Р.\n"
                                "Семейников А.Н.\n"
@@ -26,3 +26,6 @@ class PageAbout(tk.Frame):
                            font="16"  # высота шрифта
                            )
         button.grid(row=1, column=0)
+
+        self.grid_rowconfigure(1, weight=1)
+        self.grid_columnconfigure(1, weight=1)
