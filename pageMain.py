@@ -32,6 +32,7 @@ class PageMain(tk.Frame):
         button3.grid(row=0, column=3,  sticky="nsew")
 
         #
+        
 
         # create the center widgets
         center.grid_rowconfigure(0, weight=1)
