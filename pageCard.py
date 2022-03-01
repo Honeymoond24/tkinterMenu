@@ -13,35 +13,32 @@ class PageCard(tk.Frame):
         self.link = link
         print(self.link)
 
-        top_frame = Frame(self, bg='cyan', pady=3)
+        top_frame = Frame(self)
         Header(top_frame, self.controller)
-        
-        center = Frame(self, bg='white', pady=3)
-        
-        self.ph_img = tk.PhotoImage(file='assets/111.png').subsample(15,15)
-    
-        self.image = Button(center, image=self.ph_img, relief='flat')
-        self.image.pack(side=LEFT)
+        self.center = Frame(self)  # #FEF2E4 гриб
 
-        self.title = Label(center, text="Какое-то блюдо", font=(20))
-        self.descritption = Label(center, text="Описание какого-то блюда", font=(20))
+        self.ph_img = tk.PhotoImage(file='assets/111.png').subsample(15, 15)
+        self.image = Button(self.center, image=self.ph_img, relief='flat')
+        self.image.grid(row=1, column=0, sticky="N")
 
-        self.title.pack()
-        self.descritption.pack()
+        self.title = Label(self.center, text="Корейский суп Чов Зва", font=20)
+        self.description = Label(self.center,
+                                 text="Данное блюдо очень распространено в Северной Корее. \nЕго рецепт очень сложен.",
+                                 font=20)
+        self.title.grid(row=1, column=1, sticky="N")
+        self.description.grid(row=2, column=1, sticky="N")
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
         self.parent.grid_columnconfigure(0, weight=1)
 
-        
-        top_frame.grid(row=0, sticky="ns")
-        center.grid(row=1, sticky="nsew")
-        
+        top_frame.grid(row=0, sticky="EW")
+        self.center.grid(row=1, sticky="N")
 
-        # create the center widgets
-        center.grid_rowconfigure(0, weight=1)
-        center.grid_columnconfigure(1, weight=1)
+        # create the self.center widgets
+        self.center.grid_rowconfigure(0, weight=1)
+        self.center.grid_columnconfigure(1, weight=1)
+        self.grid_rowconfigure(1, weight=10)
+        self.grid_columnconfigure(0, weight=1)
 
-        ctr_left = Frame(center, bg='blue')
-
-        ctr_right = Frame(center, bg='green', padx=3, pady=3)
-        
+        # ctr_left = Frame(self.center, bg='blue')
+        # ctr_right = Frame(self.center, bg='green')

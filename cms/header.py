@@ -9,24 +9,24 @@ class Header(tk.Frame):
         self.controller = controller
 
         # label = tk.Label(self, text="MainPage", font=controller.title_font)
-        button1 = tk.Button(self.parent, text="Главная страница", command=lambda: controller.show_frame("PageMain"),
-                            background="#555",  # фоновый цвет кнопки
-                            foreground="#ccc",  # цвет текста
+        button1 = tk.Button(self.parent, text="Блюда", command=lambda: controller.show_frame("PageMain"),
+                            background="#D55448",  # фоновый цвет кнопки
+                            foreground="#F9F9FF",  # цвет текста
                             padx="20",  # отступ от границ до содержимого по горизонтали
                             pady="8",  # отступ от границ до содержимого по вертикали
                             font="16"  # высота шрифта
                             )
         print()
-        button2 = tk.Button(self.parent, text="Страница 1", command=lambda: controller.show_frame("PageOne"),
-                            background="#555",  # фоновый цвет кнопки
-                            foreground="#ccc",  # цвет текста
+        button2 = tk.Button(self.parent, text="Продукты", command=lambda: controller.show_frame("PageOne"),
+                            background="#D55448",  # фоновый цвет кнопки
+                            foreground="#F9F9FF",  # цвет текста
                             padx="20",  # отступ от границ до содержимого по горизонтали
                             pady="8",  # отступ от границ до содержимого по вертикали
                             font="16"  # высота шрифта
                             )
-        button3 = tk.Button(self.parent, text="Страница 2", command=lambda: controller.show_frame("PageTwo"),
-                            background="#555",  # фоновый цвет кнопки
-                            foreground="#ccc",  # цвет текста
+        button3 = tk.Button(self.parent, text="Меню дня", command=lambda: controller.show_frame("PageTwo"),
+                            background="#D55448",  # фоновый цвет кнопки
+                            foreground="#F9F9FF",  # цвет текста
                             padx="20",  # отступ от границ до содержимого по горизонтали
                             pady="8",  # отступ от границ до содержимого по вертикали
                             font="16"  # высота шрифта

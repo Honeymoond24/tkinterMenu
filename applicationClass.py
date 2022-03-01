@@ -12,9 +12,8 @@ class Application(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         self.title_font = tkfont.Font(family='Helvetica', size=12, weight="bold", slant="italic")
-        #self.geometry("1024x920")
+        # self.geometry("1024x920")
         container = tk.Frame(self, bg='#FEF2E4')
-        print(container, 'dfgdfg')
         container.pack(side="top", fill="both", expand=False)
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)

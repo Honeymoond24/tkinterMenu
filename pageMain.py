@@ -27,16 +27,14 @@ class PageMain(tk.Frame):
         center.grid_columnconfigure(1, weight=1)
 
         self.ctr_left = Frame(center, bg='#FFA577')
-        # ctr_mid = Frame(center, bg='yellow', padx=3, pady=3)
-        ctr_right = Frame(center, bg='#FEF2E4', padx=3, pady=3)
+        self.ctr_right = Frame(center, bg='#FEF2E4', padx=3, pady=3)
 
         self.ctr_left.grid(row=0, column=0, sticky="ns")
         self.side_bar()
-        # ctr_mid.grid(row=0, column=1, sticky="nsew")
-        ctr_right.grid(row=0, column=2, sticky="ns")
-        self.cards = Card(ctr_right, self.controller, "карточка1", 'card1')
-        self.cards1 = Card(ctr_right, self.controller, "карточка2", 'card2')
-        self.cards2 = Card(ctr_right, self.controller, "карточка3", 'card3')
+        self.ctr_right.grid(row=0, column=1, sticky="ns")
+        self.cards = Card(self.ctr_right, self.controller, "Корейский суп", 'card1')
+        self.cards1 = Card(self.ctr_right, self.controller, "Корейский суп", 'card2')
+        self.cards2 = Card(self.ctr_right, self.controller, "Корейский суп", 'card3')
         self.cards.grid(row=0, column=1)
         self.cards1.grid(row=0, column=2)
         self.cards2.grid(row=0, column=3)
@@ -45,14 +43,18 @@ class PageMain(tk.Frame):
         self.min_w = 50  # Minimum width of the frame
         self.max_w = 200  # Maximum width of the frame
         self.cur_width = self.min_w  # Increasing width of the frame
-        self.expanded = False  # Check if it is completely exanded
+        self.expanded = False  # Check if it is completely expanded
+        self.grid_rowconfigure(1, weight=10)
+        self.grid_columnconfigure(0, weight=1)
 
     def side_bar(self):  # Боковая панель с категориями
         # Make the buttons with the icons to be shown
+        btn0 = Button(self.ctr_left, text="Все", background="#896E69", foreground="#D55448", activebackground="#FFA577",
+                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', highlightthickness=0, width=16)
         btn1 = Button(self.ctr_left,
                       text="Первые блюда",
                       background="#FFA577",  # фоновый цвет кнопки
-                      foreground="#805A3B",  # цвет текста
+                      foreground="#F9F9FF",  # цвет текста
                       padx="20",  # отступ от границ до содержимого по горизонтали
                       pady="8",  # отступ от границ до содержимого по вертикали
                       font="16",  # высота шрифта
@@ -60,28 +62,25 @@ class PageMain(tk.Frame):
                       relief='flat',
                       overrelief='flat',
                       activebackground="#FFA577",
+                      width=16
                       )
-        btn1.grid(row=1, column=0, pady=10)
-        btn_width = btn1.winfo_reqwidth()
-        print(btn_width)
-        btn0 = Button(self.ctr_left, text="Все", background="#896E69", foreground="#ccc", activebackground="#FFA577",
-                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', highlightthickness=0)
+        btn2 = Button(self.ctr_left, text="Вторые блюда", background="#FFA577", foreground="#F9F9FF",
+                      activebackground="#FFA577",
+                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', width=16)
+        btn3 = Button(self.ctr_left, text="Салаты", background="#896E69", foreground="#F9F9FF",
+                      activebackground="#FFA577",
+                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', width=16)
+        btn4 = Button(self.ctr_left, text="Закуски", background="#FFA577", foreground="#F9F9FF",
+                      activebackground="#FFA577",
+                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', width=16)
+        btn5 = Button(self.ctr_left, text="Десерт", background="#FFA577", foreground="#F9F9FF",
+                      activebackground="#FFA577",
+                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', width=16)
+        btn6 = Button(self.ctr_left, text="Напитки", background="#FFA577", foreground="#F9F9FF",
+                      activebackground="#FFA577",
+                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', width=16)
         btn0.grid(row=0, column=0, pady=10)
-        btn2 = Button(self.ctr_left, text="Вторые блюда", background="#FFA577", foreground="#805A3B",
-                      activebackground="#FFA577",
-                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat')
-        btn3 = Button(self.ctr_left, text="Салаты", background="#896E69", foreground="#805A3B",
-                      activebackground="#FFA577",
-                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', highlightthickness=0)
-        btn4 = Button(self.ctr_left, text="Закуски", background="#FFA577", foreground="#805A3B",
-                      activebackground="#FFA577",
-                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat')
-        btn5 = Button(self.ctr_left, text="Десерт", background="#FFA577", foreground="#805A3B",
-                      activebackground="#FFA577",
-                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat')
-        btn6 = Button(self.ctr_left, text="Напитки", background="#FFA577", foreground="#805A3B",
-                      activebackground="#FFA577",
-                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat')
+        btn1.grid(row=1, column=0, pady=10)
         btn2.grid(row=2, column=0, pady=10)
         btn3.grid(row=3, column=0, pady=10)
         btn4.grid(row=4, column=0, pady=10)

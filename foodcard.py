@@ -10,7 +10,7 @@ class FoodCard(tk.Frame):
         self.controller = controller
         self.label_text = label_text
         self.card_frame = tk.Frame(self, padx="10", pady="8", background='#FD974F', highlightbackground="#805A3B",
-                                  highlightthickness=1, bd=0)
+                                  highlightthickness=1, bd=0, width=16)
 
         # canvas = Canvas(
         #     self.card_frame,
@@ -40,13 +40,13 @@ class FoodCard(tk.Frame):
         button2.grid(column=2, row=1)
 
         self.card_frame.grid(row=0, column=0)
-        self.card_frame.grid_rowconfigure(0, weight=0)
-        self.card_frame.grid_columnconfigure(0, weight=0)
+        self.card_frame.grid_rowconfigure(0, weight=10)
+        self.card_frame.grid_columnconfigure(0, weight=1)
 
     def click_button(self, text):
         if text == "1":
             self.c += 1
             self.label_count.config(text=self.c)
-        else:
+        elif text == "2" and self.c != 0:
             self.c -= 1
             self.label_count.config(text=self.c)
