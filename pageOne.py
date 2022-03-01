@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 
 from cms.header import *
+from foodcard import FoodCard
 
 
 class PageOne(tk.Frame):
@@ -30,9 +31,14 @@ class PageOne(tk.Frame):
         center.grid_columnconfigure(1, weight=1)
 
         ctr_left = Frame(center, bg='blue')
-        ctr_mid = Frame(center, bg='yellow', padx=3, pady=3)
+       
         ctr_right = Frame(center, bg='green', padx=3, pady=3)
-
+        self.cards = FoodCard(ctr_right, self.controller, "карточка1")
+        self.cards1 = FoodCard(ctr_right, self.controller, "карточка2")
+        self.cards2 = FoodCard(ctr_right, self.controller, "карточка3")
+        self.cards.grid(row=0, column=1)
+        self.cards1.grid(row=0, column=2)
+        self.cards2.grid(row=0, column=3)
         ctr_left.grid(row=0, column=0, sticky="ns")
-        ctr_mid.grid(row=0, column=1, sticky="nsew")
+        
         ctr_right.grid(row=0, column=2, sticky="ns")
