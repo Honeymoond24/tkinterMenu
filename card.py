@@ -1,11 +1,42 @@
 import tkinter as tk
+from tkinter import *
 
 
 class Card(tk.Frame):
-    def __init__(self, parent, controller):
+    def __init__(self, parent, controller,lable_text):
         tk.Frame.__init__(self, parent)
+        self.parent = parent
         self.controller = controller
-        label = tk.Label(self, text="This is page 1", font=controller.title_font)
-        label.pack(side="top", fill="x", pady=10)
-        button = tk.Button(self, text="Go to the start page", command=lambda: controller.show_frame("PageMain"))
-        button.pack()
+        self.lable_text=lable_text
+        self.cardframe=tk.Frame(self,padx="10",pady="8",background='#FD974F',highlightbackground="#805A3B", highlightthickness=1, bd= 0)
+
+        canvas = Canvas(
+            self.cardframe,
+            width = 100, 
+            height = 100
+                )      
+        canvas.grid(column=0,row=0,rowspan=2)    
+        img = tk.PhotoImage(master=canvas,file='assets/1234.png')  
+          
+        canvas.create_image(
+            100,
+            100, 
+            anchor=NW, 
+            image=img
+            ) 
+
+
+        label = tk.Label(self.cardframe,background='#FD974F', text=self.lable_text, font=controller.title_font)
+        label.grid(column=1,row=0)
+        button1 = tk.Button(self.cardframe, text="test", command=lambda: controller.show_frame("PageOne"),
+                             background="#555",  # фоновый цвет кнопки
+                             foreground="#ccc",  # цвет текста
+                             padx="20",  # отступ от границ до содержимого по горизонтали
+                             pady="8",  # отступ от границ до содержимого по вертикали
+                             font="5"  # высота шрифта
+                             )
+        button1.grid(column=1,row=1)
+       
+        self.cardframe.grid(row=1,column=1)
+    #     
+       
