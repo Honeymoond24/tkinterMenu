@@ -15,12 +15,9 @@ class FoodCard(tk.Frame):
         #     width = 100, 
         #     height = 100
         #         )      
-        # canvas.grid(column=0,row=0,rowspan=2)    
-        self.img = tk.PhotoImage(file='assets/1234.png')  
-          
+        # canvas.grid(column=0,row=0,rowspan=2)     
         # canvas.create_image(100,100,image=self.img) 
-        label1 = tk.Label(image=self.img)
-        #label1.grid(column=0,row=0,rowspan=2) 
+        
         self.plus = PhotoImage(file='assets/plus.png')
         self.minus = PhotoImage(file="assets/minus.png")
         self.size_plus = self.plus.subsample(20, 20)
