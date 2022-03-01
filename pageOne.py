@@ -14,8 +14,6 @@ class PageOne(tk.Frame):
         top_frame = Frame(self, bg='cyan', pady=3)
         Header(top_frame, self.controller)
         center = Frame(self, bg='gray2', pady=3)
-        btm_frame = Frame(self, bg='white', pady=3)
-        btm_frame2 = Frame(self, bg='lavender', pady=3)
 
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
@@ -23,8 +21,6 @@ class PageOne(tk.Frame):
 
         top_frame.grid(row=0, sticky="ns")
         center.grid(row=1, sticky="nsew")
-        btm_frame.grid(row=3, sticky="ns")
-        btm_frame2.grid(row=4, sticky="ns")
 
         # create the center widgets
         center.grid_rowconfigure(0, weight=1)

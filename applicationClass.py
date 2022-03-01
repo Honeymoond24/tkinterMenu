@@ -14,7 +14,8 @@ class Application(tk.Tk):
         self.title_font = tkfont.Font(family='Helvetica', size=12, weight="bold", slant="italic")
         # self.geometry("1280x720+300+200")
         container = tk.Frame(self)
-        container.pack(side="top", fill="both", expand=True)
+        print(container, 'dfgdfg')
+        container.pack(side="top", fill="both", expand=False)
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
         self.frames = {}
