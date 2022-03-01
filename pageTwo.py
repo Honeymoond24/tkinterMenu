@@ -13,7 +13,7 @@ class PageTwo(tk.Frame):
         btm_frame = Frame(self, bg='white', width=450, height=45, pady=3)
         btm_frame2 = Frame(self, bg='lavender', width=450, height=60, pady=3)
 
-        # label = tk.Label(top_frame, text="This is the start page1", font=controller.title_font)
+       
         button1 = tk.Button(top_frame, text="Go to Page One", command=lambda: controller.show_frame("PageMain"))
         button2 = tk.Button(top_frame, text="Go to Page Two", command=lambda: controller.show_frame("PageTwo"))
         button3 = tk.Button(top_frame, text="About", command=lambda: controller.show_frame("PageAbout"))
