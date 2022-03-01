@@ -9,9 +9,10 @@ class PageMain(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.parent = parent  # Родительский элемент
         self.controller = controller  # это кто?
-
         # Фреймы, верстка
-        top_frame = Frame(self, bg='cyan', pady=3)
+        top_frame = Frame(self,
+                          # bg='cyan', pady=3
+                          )
         Header(top_frame, self.controller)
         center = Frame(self, bg='gray2', pady=3)
 
@@ -49,6 +50,9 @@ class PageMain(tk.Frame):
 
     def side_bar(self):  # Боковая панель с категориями
         # Make the buttons with the icons to be shown
+        btn0 = Button(self.ctr_left, text="Все", background="#896E69", foreground="#ccc", activebackground="#FFA577",
+                      padx="20", pady="8", font="16", bg='#FFA577', relief='flat', highlightthickness=0)
+        btn0.grid(row=0, column=0, pady=10)
         btn1 = Button(self.ctr_left,
                       text="Первые блюда",
                       background="#FFA577",  # фоновый цвет кнопки
@@ -59,7 +63,7 @@ class PageMain(tk.Frame):
                       bg='#FFA577',
                       relief='flat'
                       )
-        btn1.grid(row=0, column=0, pady=10)
+        btn1.grid(row=1, column=0, pady=10)
         btn_width = btn1.winfo_width()
         print(btn_width)
         btn2 = Button(self.ctr_left, text="Вторые блюда", background="#FFA577", foreground="#ccc",
@@ -73,8 +77,8 @@ class PageMain(tk.Frame):
                       padx="20", pady="8", font="16", bg='#FFA577', relief='flat')
         btn6 = Button(self.ctr_left, text="Напитки", background="#FFA577", foreground="#ccc",
                       padx="20", pady="8", font="16", bg='#FFA577', relief='flat')
-        btn2.grid(row=1, column=0, pady=10)
-        btn3.grid(row=2, column=0, pady=10)
-        btn4.grid(row=3, column=0, pady=10)
-        btn5.grid(row=4, column=0, pady=10)
-        btn6.grid(row=5, column=0, pady=10)
+        btn2.grid(row=2, column=0, pady=10)
+        btn3.grid(row=3, column=0, pady=10)
+        btn4.grid(row=4, column=0, pady=10)
+        btn5.grid(row=5, column=0, pady=10)
+        btn6.grid(row=6, column=0, pady=10)

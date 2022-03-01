@@ -23,7 +23,7 @@ class Card(tk.Frame):
             100, 
             anchor=NW, 
             image=img
-            ) 
+            )
 
 
         label = tk.Label(self.cardframe,background='#FD974F', text=self.lable_text, font=controller.title_font)
