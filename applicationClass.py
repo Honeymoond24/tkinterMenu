@@ -10,8 +10,8 @@ from menu import *
 class Application(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
-        self.title_font = tkfont.Font(family='Helvetica', size=18, weight="bold", slant="italic")
-        self.geometry("1280x720+300+200")
+        self.title_font = tkfont.Font(family='Helvetica', size=12, weight="bold", slant="italic")
+        # self.geometry("1280x720+300+200")
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
         container.grid_rowconfigure(0, weight=1)
