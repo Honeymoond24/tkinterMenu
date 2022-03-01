@@ -5,6 +5,7 @@ from pageOne import *
 from pageTwo import *
 from pageAbout import *
 from menu import *
+from pageCard import *
 
 
 class Application(tk.Tk):
@@ -21,13 +22,14 @@ class Application(tk.Tk):
         self.frames["PageMain"] = PageMain(parent=container, controller=self)
         self.frames["PageOne"] = PageOne(parent=container, controller=self)
         self.frames["PageTwo"] = PageTwo(parent=container, controller=self)
-        self.frames["PageTwo"] = PageTwo(parent=container, controller=self)
         self.frames["PageAbout"] = PageAbout(parent=container, controller=self)
+        self.frames["PageCard"] = PageCard(parent=container, controller=self, link='link')
 
         self.frames["PageMain"].grid(row=0, column=0, sticky="nsew")
         self.frames["PageOne"].grid(row=0, column=0, sticky="nsew")
         self.frames["PageTwo"].grid(row=0, column=0, sticky="nsew")
         self.frames["PageAbout"].grid(row=0, column=0, sticky="nsew")
+        self.frames["PageCard"].grid(row=0, column=0, sticky="nsew")
 
         self.show_frame("PageMain")
         self.menu = AppMenu(self, container)

@@ -1,14 +1,15 @@
 import tkinter as tk
 from tkinter import *
+from pageCard import *
 
 
 class Card(tk.Frame):
-    def __init__(self, parent, controller, lable_text, card_id):
+    def __init__(self, parent, controller, lable_text, link):
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.controller = controller
         self.lable_text=lable_text
-        self.card_id = card_id
+        self.link = link
         self.cardframe=tk.Frame(self,padx="10",pady="8",background='#FD974F',highlightbackground="#805A3B", highlightthickness=1, bd= 0)
 
         canvas = Canvas(
@@ -29,7 +30,8 @@ class Card(tk.Frame):
 
         label = tk.Label(self.cardframe,background='#FFA577',foreground= "#896E69", text=self.lable_text, font=controller.title_font)
         label.grid(column=1,row=0)
-        button1 = tk.Button(self.cardframe, text="test", command=lambda: controller.show_frame("PageOne"),
+        # self.controller.frames[self.link] = PageCard(parent=self, controller=controller, link=self.link)
+        button1 = tk.Button(self.cardframe, text="test", command=lambda: controller.show_frame('PageCard'),
                              background="#555",  # фоновый цвет кнопки
                              foreground="#ccc",  # цвет текста
                              padx="20",  # отступ от границ до содержимого по горизонтали
@@ -39,5 +41,3 @@ class Card(tk.Frame):
         button1.grid(column=1,row=1)
        
         self.cardframe.grid(row=1,column=1)
-    #     
-       
