@@ -16,6 +16,7 @@ class Header(tk.Frame):
                             pady="8",  # отступ от границ до содержимого по вертикали
                             font="16"  # высота шрифта
                             )
+        print()
         button2 = tk.Button(self.parent, text="Страница 1", command=lambda: controller.show_frame("PageOne"),
                             background="#555",  # фоновый цвет кнопки
                             foreground="#ccc",  # цвет текста
@@ -33,11 +34,11 @@ class Header(tk.Frame):
 
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
-        self.parent.grid_columnconfigure(0, weight=1)
+        self.parent.grid_columnconfigure(2, weight=1)
 
-        self.grid(row=0, sticky="ew")
+        self.grid(row=0, sticky="EW")
 
         # label.grid(row=0, column=0,  sticky="nsew")
-        button1.grid(row=0, column=1, sticky="nsew")
-        button2.grid(row=0, column=2, sticky="nsew")
-        button3.grid(row=0, column=3, sticky="nsew")
+        button1.grid(row=0, column=0, sticky="nsew")
+        button2.grid(row=0, column=1, sticky="nsew")
+        button3.grid(row=0, column=2, sticky="nsew")

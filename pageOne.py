@@ -20,10 +20,10 @@ class PageOne(tk.Frame):
         self.parent.grid_rowconfigure(1, weight=1)
         self.parent.grid_columnconfigure(0, weight=1)
 
-        top_frame.grid(row=0, sticky="ew")
+        top_frame.grid(row=0, sticky="ns")
         center.grid(row=1, sticky="nsew")
-        btm_frame.grid(row=3, sticky="ew")
-        btm_frame2.grid(row=4, sticky="ew")
+        btm_frame.grid(row=3, sticky="ns")
+        btm_frame2.grid(row=4, sticky="ns")
 
         # create the center widgets
         center.grid_rowconfigure(0, weight=1)
