@@ -1,5 +1,5 @@
 from applicationClass import Application
 
-rMenu = Application()
-rMenu.start()
-#sdfsdf
+if __name__ == "__main__":
+    app = Application()
+    app.mainloop()

@@ -2,10 +2,10 @@ from tkinter import *
 
 
 class AppMenu(Tk):
-    def __init__(self, root, fra):
-        self.root = root
-        self.fra = fra
-        self.m = Menu(self.root)
+    def __init__(self, parent, controller):
+        self.parent = parent
+        self.controller = controller
+        self.m = Menu(self.parent)
         # Вкладки меню
         self.menu = Menu(self.m, tearoff=0)  # Меню
         self.theme = Menu(self.m, tearoff=0)  # Тема
@@ -13,7 +13,7 @@ class AppMenu(Tk):
         self.about = Menu(self.m, tearoff=0)  # Справка
 
     def add_menu(self):
-        self.root.config(menu=self.m)
+        self.parent.config(menu=self.m)
         # Меню главное меню
         self.m.add_cascade(label="Меню", menu=self.menu)
         self.menu.add_command(label="Выйти", command=exit)
@@ -28,22 +28,22 @@ class AppMenu(Tk):
         # Меню справка
         self.m.add_cascade(label="Справка", menu=self.about)
         self.about.add_command(label="Поставить оценку", command=self.square)
-        self.about.add_command(label="О программе", command=self.square)
+        self.about.add_command(label="О программе", command=lambda: self.parent.show_frame("PageAbout"))
 
     def color_white(self):
-        self.fra.config(bg="White")
-        self.fra.pack()
+        self.controller.config(bg="White")
+        self.controller.pack()
 
     def color_gray(self):
-        self.fra.config(bg="Gray")
-        self.fra.pack()
+        self.controller.config(bg="Gray")
+        self.controller.pack()
 
     def square(self):
-        self.fra.config(width=960)
-        self.fra.config(height=720)
-        self.fra.pack()
+        self.controller.config(width=960)
+        self.controller.config(height=720)
+        self.controller.pack()
 
     def rectangle(self):
-        self.fra.config(width=1280)
-        self.fra.config(height=720)
-        self.fra.pack()
+        self.controller.config(width=1280)
+        self.controller.config(height=720)
+        self.controller.pack()

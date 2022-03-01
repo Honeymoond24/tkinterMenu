@@ -1,46 +1,37 @@
-from tkinter import *
-from menu import AppMenu
-from tkinter import font as tkfont
+import tkinter as tk  # python 3
+from tkinter import font as tkfont  # python 3
 from pageMain import *
 from pageOne import *
 from pageTwo import *
+from pageAbout import *
+from menu import *
 
 
-class Application(Tk):
-    def __init__(self):
-        self.root = Tk()
-        self.root.title("Ресторан \"Шакал\"")
+class Application(tk.Tk):
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
         self.title_font = tkfont.Font(family='Helvetica', size=18, weight="bold", slant="italic")
-        # the container is where we'll stack a bunch of frames
-        # on top of each other, then the one we want visible
-        # will be raised above the others
-        # Параметры по умолчанию
-        self.fra = Frame(self.root, width=960, height=720, bg="White")
-        self.fra.pack()
-        self.menu = AppMenu(self.root, self.fra)
-        self.menu.add_menu()
-        self.frames = {}
-
-    def show_frame(self, page_name):
-        '''Show a frame for the given page name'''
-        frame = self.frames[page_name]
-        frame.tkraise()
-
-    def start(self):
+        self.geometry("1280x720+300+200")
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
+        self.frames = {}
 
-        for F in (StartPage, PageOne, PageTwo):
-            page_name = F.__name__
-            frame = F(parent=container, controller=self)
-            self.frames[page_name] = frame
+        self.frames["PageMain"] = PageMain(parent=container, controller=self)
+        self.frames["PageOne"] = PageOne(parent=container, controller=self)
+        self.frames["PageTwo"] = PageTwo(parent=container, controller=self)
+        self.frames["PageAbout"] = PageAbout(parent=container, controller=self)
 
-            # put all of the pages in the same location;
-            # the one on the top of the stacking order
-            # will be the one that is visible.
-            frame.grid(row=0, column=0, sticky="nsew")
+        self.frames["PageMain"].grid(row=0, column=0, sticky="nsew")
+        self.frames["PageOne"].grid(row=0, column=0, sticky="nsew")
+        self.frames["PageTwo"].grid(row=0, column=0, sticky="nsew")
+        self.frames["PageAbout"].grid(row=0, column=0, sticky="nsew")
 
-        self.show_frame("StartPage")
-        self.root.mainloop()
+        self.show_frame("PageMain")
+        self.menu = AppMenu(self, container)
+        self.menu.add_menu()
+
+    def show_frame(self, page_name):
+        frame = self.frames[page_name]
+        frame.tkraise()
