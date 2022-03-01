@@ -3,11 +3,12 @@ from tkinter import *
 
 
 class Card(tk.Frame):
-    def __init__(self, parent, controller,lable_text):
+    def __init__(self, parent, controller, lable_text, card_id):
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.controller = controller
         self.lable_text=lable_text
+        self.card_id = card_id
         self.cardframe=tk.Frame(self,padx="10",pady="8",background='#FD974F',highlightbackground="#805A3B", highlightthickness=1, bd= 0)
 
         canvas = Canvas(

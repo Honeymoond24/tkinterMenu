@@ -21,6 +21,7 @@ class Application(tk.Tk):
         self.frames["PageMain"] = PageMain(parent=container, controller=self)
         self.frames["PageOne"] = PageOne(parent=container, controller=self)
         self.frames["PageTwo"] = PageTwo(parent=container, controller=self)
+        self.frames["PageTwo"] = PageTwo(parent=container, controller=self)
         self.frames["PageAbout"] = PageAbout(parent=container, controller=self)
 
         self.frames["PageMain"].grid(row=0, column=0, sticky="nsew")

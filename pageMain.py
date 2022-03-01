@@ -10,9 +10,7 @@ class PageMain(tk.Frame):
         self.parent = parent  # Родительский элемент
         self.controller = controller  # это кто?
         # Фреймы, верстка
-        top_frame = Frame(self,
-                          # bg='cyan', pady=3
-                          )
+        top_frame = Frame(self)
         Header(top_frame, self.controller)
         center = Frame(self, bg='gray2', pady=3)
 
