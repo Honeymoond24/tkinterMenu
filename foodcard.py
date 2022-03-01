@@ -38,6 +38,8 @@ class FoodCard(tk.Frame):
         button2.grid(column=2,row=1)
        
         self.cardframe.grid(row=1,column=1)
+        self.cardframe.grid_rowconfigure(0, weight=1)
+        self.cardframe.grid_columnconfigure(0, weight=1)
     #     
    
 
