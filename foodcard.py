@@ -12,14 +12,6 @@ class FoodCard(tk.Frame):
         self.card_frame = tk.Frame(self, padx="10", pady="8", background='#FD974F', highlightbackground="#805A3B",
                                    highlightthickness=1, bd=0, width=16)
 
-        # canvas = Canvas(
-        #     self.card_frame,
-        #     width = 100, 
-        #     height = 100
-        #         )      
-        # canvas.grid(column=0,row=0,rowspan=2)     
-        # canvas.create_image(100,100,image=self.img) 
-
         self.plus = PhotoImage(file='assets/plus.png')
         self.minus = PhotoImage(file="assets/minus.png")
         self.size_plus = self.plus.subsample(20, 20)

@@ -14,14 +14,6 @@ class Food(tk.Frame):
 
         top_frame.grid(row=0, sticky="EW")
         center.grid(row=1, column=0, sticky="NS")
-        # center.grid_columnconfigure(0, weight=1)
-        # center.grid_columnconfigure(1, weight=10)
-        # center.grid_columnconfigure(2, weight=1)
-        # create the center widgets
-        # center.grid_rowconfigure(0, weight=1)
-        # center.grid_columnconfigure(1, weight=1)
-
-        # ctr_right = Frame(center, bg='green', padx=3, pady=3)
         self.cards0 = FoodCard(center, self.controller, "Мука")
         self.cards1 = FoodCard(center, self.controller, "Картофель")
         self.cards2 = FoodCard(center, self.controller, "Морковь")
@@ -44,7 +36,3 @@ class Food(tk.Frame):
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
         self.parent.grid_columnconfigure(0, weight=10)
-        # self.grid_columnconfigure(1, weight=1)
-        # self.grid_columnconfigure(2, weight=1)
-        # self.grid_columnconfigure(3, weight=1)
-        # self.grid_columnconfigure(4, weight=1)
