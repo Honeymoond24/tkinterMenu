@@ -1,4 +1,5 @@
 from tkinter import *
+from sys import exit
 
 
 class AppMenu(Tk):
