@@ -2,8 +2,8 @@ from tkinter import *
 from sys import exit
 
 
-class AppMenu(Tk): #Класс.
-    def __init__(self, parent, controller): #Конструктор.
+class AppMenu(Tk):  # Класс.
+    def __init__(self, parent, controller):  # Конструктор.
         self.parent = parent
         self.controller = controller
         self.m = Menu(self.parent)

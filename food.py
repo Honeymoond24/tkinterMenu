@@ -3,14 +3,14 @@ from header import *
 from foodcard import FoodCard
 
 
-class Food(tk.Frame): #Класс.
-    def __init__(self, parent, controller): #Конструктор Продуктов.
+class Food(tk.Frame):  # Класс.
+    def __init__(self, parent, controller):  # Конструктор Продуктов.
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.controller = controller
 
-        top_frame = Frame(self) 
-        Header(top_frame, self.controller) #Шапочка.
+        top_frame = Frame(self)
+        Header(top_frame, self.controller)  # Шапочка.
         center = Frame(self, bg='#FEF2E4')
 
         top_frame.grid(row=0, sticky="EW")
