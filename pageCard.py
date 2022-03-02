@@ -10,13 +10,13 @@ class PageCard(tk.Frame):  # Класс.
         self.link = link
         # print(self.link)
 
-        top_frame = Frame(self)  # Верхний блок
-        Header(top_frame, self.controller)  # Обработка верхнего блока
-        self.center = Frame(self)
+        top_frame = Frame(self)
+        Header(top_frame, self.controller)
+        self.center = Frame(self)  # #FEF2E4 гриб
 
-        self.ph_img = tk.PhotoImage(file='assets/111.png').subsample(15, 15)  # Добавляем фото в переменную
-        self.image = Button(self.center, image=self.ph_img, relief='flat')  # Добавляем переменную с фото
-        self.image.grid(row=1, column=0, sticky="N")  # Прилипание к северу - вверх
+        self.ph_img = tk.PhotoImage(file='assets/111.png').subsample(15, 15)
+        self.image = Button(self.center, image=self.ph_img, relief='flat')
+        self.image.grid(row=1, column=0, sticky="N")
 
         self.title = Label(self.center, text="Корейский суп Чов Зва", font=20)
         self.description = Label(self.center,

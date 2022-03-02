@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter import *
 
 
-class FoodCard(tk.Frame):
+class FoodCard(tk.Frame): #Класс.
     def __init__(self, parent, controller, label_text):
-        tk.Frame.__init__(self, parent)
+        tk.Frame.__init__(self, parent) #Конструктор продуктов.
         self.parent = parent
         self.c = 0
         self.controller = controller
@@ -24,9 +24,9 @@ class FoodCard(tk.Frame):
         self.label_count.grid(column=3, row=0, rowspan=2)
 
         button1 = tk.Button(self.card_frame, background='#FD974F', activebackground="#FFA577", image=self.size_plus,
-                            relief='flat', text="test", command=lambda: self.click_button('plus'))
+                            relief='flat', text="test", command=lambda: self.click_button('1'))
         button2 = tk.Button(self.card_frame, background='#FD974F', activebackground="#FFA577", image=self.size_minus,
-                            relief='flat', text="test", command=lambda: self.click_button('minus'))
+                            relief='flat', text="test", command=lambda: self.click_button('2'))
 
         button1.grid(column=2, row=0)
         button2.grid(column=2, row=1)
@@ -35,10 +35,10 @@ class FoodCard(tk.Frame):
         self.card_frame.grid_rowconfigure(0, weight=10)
         self.card_frame.grid_columnconfigure(0, weight=1)
 
-    def click_button(self, text):
-        if text == "plus":  # Условие Если нажата кнопка плюс, то добавляем к "с" единицу
+    def click_button(self, text): #Функция добавления продукта.
+        if text == "1":
             self.c += 1
-            self.label_count.config(text=self.c)  # Обновление счетчика "с"
-        elif text == "minus" and self.c != 0:  # Условие Если нажата кнопка минус, то отнимаем от "с" единицу
+            self.label_count.config(text=self.c)
+        elif text == "2" and self.c != 0:
             self.c -= 1
-            self.label_count.config(text=self.c)  # Обновление счетчика "с"
+            self.label_count.config(text=self.c)
