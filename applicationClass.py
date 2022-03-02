@@ -9,7 +9,10 @@ from pageCard import *
 class Application(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
-        self.title_font = tkfont.Font(family='Helvetica', size=12, weight="bold", slant="italic")
+        self.title_font = tkfont.Font(family='Helvetica', size=12, 
+        slant="italic", 
+        weight="bold"
+        )
         # self.geometry("1024x920")
         container = tk.Frame(self, bg='#FEF2E4')
         container.pack(side="top", fill="both", expand=False)
