@@ -13,6 +13,7 @@ class Application(tk.Tk):  # Класс.
                                       slant="italic",
                                       weight="bold"
                                       )
+        self.title('Ресторан Шакал')
         # self.geometry("1024x920")
         container = tk.Frame(self, bg='#FEF2E4')  # Страницы
         container.pack(side="top", fill="both", expand=False)
