@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from turtle import onclick
 from card import *
-from cms.header import *
+from header import *
 
 
 class PageMain(tk.Frame):

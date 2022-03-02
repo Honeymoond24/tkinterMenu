@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from card import Card
 
-from cms.header import *
+from header import *
 from foodcard import FoodCard
 
 
@@ -12,10 +12,10 @@ class PageTwo(tk.Frame):
         self.parent = parent
         self.controller = controller
 
-        top_frame = Frame(self, pady=3)
+        top_frame = Frame(self)
         Header(top_frame, self.controller)
         top_frame.grid(row=0, sticky="EW")
-        self.center = Frame(self, bg='#FEF2E4', pady=3)
+        self.center = Frame(self, bg='#FEF2E4')
         self.center.grid(row=1, column=0, sticky="nsew")
 
         label = tk.Label(self.center, background='#FD974F', foreground="#FEF2E4",

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 
-from cms.header import *
+from header import *
 from foodcard import FoodCard
 
 
@@ -11,7 +11,7 @@ class PageCard(tk.Frame):
         self.parent = parent
         self.controller = controller
         self.link = link
-        print(self.link)
+        # print(self.link)
 
         top_frame = Frame(self)
         Header(top_frame, self.controller)

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 
-from cms.header import *
+from header import *
 from foodcard import FoodCard
 
 
