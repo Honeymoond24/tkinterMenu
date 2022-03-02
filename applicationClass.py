@@ -1,4 +1,4 @@
-from pageMain import *
+from pageMain import * #Импортируем необходимые файлы зависимостей.
 from food import *
 from dailyMenu import *
 from pageAbout import *
@@ -6,12 +6,15 @@ from menu import *
 from pageCard import *
 
 
-class Application(tk.Tk):
-    def __init__(self, *args, **kwargs):
+class Application(tk.Tk): #Класс.
+    def __init__(self, *args, **kwargs): #Конструктор приложения.
         tk.Tk.__init__(self, *args, **kwargs)
-        self.title_font = tkfont.Font(family='Helvetica', size=12, weight="bold", slant="italic")
+        self.title_font = tkfont.Font(family='Helvetica', size=12, 
+        slant="italic", 
+        weight="bold"
+        )
         # self.geometry("1024x920")
-        container = tk.Frame(self, bg='#FEF2E4')
+        container = tk.Frame(self, bg='#FEF2E4') #Страницы
         container.pack(side="top", fill="both", expand=False)
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)

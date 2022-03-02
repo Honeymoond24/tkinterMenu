@@ -1,8 +1,8 @@
 from header import *
 
 
-class PageCard(tk.Frame):
-    def __init__(self, parent, controller, link):
+class PageCard(tk.Frame): #Класс.
+    def __init__(self, parent, controller, link): #Конструктор описания карточки.
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.controller = controller
