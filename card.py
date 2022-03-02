@@ -1,8 +1,8 @@
 from pageCard import *
 
 
-class Card(tk.Frame):
-    def __init__(self, parent, controller, lable_text, link):
+class Card(tk.Frame): #Класс.
+    def __init__(self, parent, controller, lable_text, link): #Конструктор карточки.
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.controller = controller
