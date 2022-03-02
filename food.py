@@ -2,7 +2,7 @@ from header import *
 from foodcard import FoodCard
 
 
-class PageOne(tk.Frame):
+class Food(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.parent = parent
