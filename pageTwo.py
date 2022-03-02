@@ -1,9 +1,5 @@
-import tkinter as tk
-from tkinter import *
 from card import Card
-
 from header import *
-from foodcard import FoodCard
 
 
 class PageTwo(tk.Frame):

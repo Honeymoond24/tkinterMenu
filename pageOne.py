@@ -1,6 +1,3 @@
-import tkinter as tk
-from tkinter import *
-
 from header import *
 from foodcard import FoodCard
 

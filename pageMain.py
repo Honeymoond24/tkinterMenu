@@ -1,6 +1,3 @@
-import tkinter as tk
-from tkinter import *
-from turtle import onclick
 from card import *
 from header import *
 
