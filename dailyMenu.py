@@ -2,14 +2,14 @@ from card import Card
 from header import *
 
 
-class DailyMenu(tk.Frame):
-    def __init__(self, parent, controller):
+class DailyMenu(tk.Frame): #Класс.
+    def __init__(self, parent, controller): #Конструктор ежедневного меню.
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.controller = controller
 
         top_frame = Frame(self)
-        Header(top_frame, self.controller)
+        Header(top_frame, self.controller) #Шапочка.
         top_frame.grid(row=0, sticky="EW")
         self.center = Frame(self, bg='#FEF2E4')
         self.center.grid(row=1, column=0, sticky="nsew")
