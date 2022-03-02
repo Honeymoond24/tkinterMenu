@@ -1,3 +1,4 @@
+from tkinter import *
 from card import *
 from header import *
 
