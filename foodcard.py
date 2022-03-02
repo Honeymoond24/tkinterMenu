@@ -32,9 +32,9 @@ class FoodCard(tk.Frame):
         self.label_count.grid(column=3, row=0, rowspan=2)
 
         button1 = tk.Button(self.card_frame, background='#FD974F', activebackground="#FFA577", image=self.size_plus,
-                            relief='flat', text="test", command=lambda: self.click_button('1'))
+                            relief='flat', text="test", command=lambda: self.click_button('plus'))
         button2 = tk.Button(self.card_frame, background='#FD974F', activebackground="#FFA577", image=self.size_minus,
-                            relief='flat', text="test", command=lambda: self.click_button('2'))
+                            relief='flat', text="test", command=lambda: self.click_button('minus'))
 
         button1.grid(column=2, row=0)
         button2.grid(column=2, row=1)
@@ -44,9 +44,9 @@ class FoodCard(tk.Frame):
         self.card_frame.grid_columnconfigure(0, weight=1)
 
     def click_button(self, text):
-        if text == "1":
+        if text == "plus":  # Условие Если нажата кнопка плюс, то добавляем к "с" единицу
             self.c += 1
-            self.label_count.config(text=self.c)
-        elif text == "2" and self.c != 0:
+            self.label_count.config(text=self.c)  # Обновление счетчика "с"
+        elif text == "minus" and self.c != 0:  # Условие Если нажата кнопка минус, то отнимаем от "с" единицу
             self.c -= 1
-            self.label_count.config(text=self.c)
+            self.label_count.config(text=self.c)  # Обновление счетчика "с"
