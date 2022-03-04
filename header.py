@@ -9,7 +9,8 @@ class Header(tk.Frame):
 
         # label = tk.Label(self, text="MainPage", font=controller.title_font)
         button1 = tk.Button(self.parent, text="Блюда", command=lambda: controller.show_frame("PageMain"),
-                            background="#D55448",  # фоновый цвет кнопки
+                            background="#00a1df",  # фоновый цвет кнопки
+                            activebackground="#00a1df",
                             foreground="#F9F9FF",  # цвет текста
                             padx="20",  # отступ от границ до содержимого по горизонтали
                             pady="8",  # отступ от границ до содержимого по вертикали
@@ -17,14 +18,16 @@ class Header(tk.Frame):
                             )
         print()
         button2 = tk.Button(self.parent, text="Продукты", command=lambda: controller.show_frame("PageOne"),
-                            background="#D55448",  # фоновый цвет кнопки
+                            background="#00a1df",  # фоновый цвет кнопки
+                            activebackground="#00a1df",
                             foreground="#F9F9FF",  # цвет текста
                             padx="20",  # отступ от границ до содержимого по горизонтали
                             pady="8",  # отступ от границ до содержимого по вертикали
                             font="16"  # высота шрифта
                             )
         button3 = tk.Button(self.parent, text="Меню дня", command=lambda: controller.show_frame("PageTwo"),
-                            background="#D55448",  # фоновый цвет кнопки
+                            background="#00a1df",  # фоновый цвет кнопки
+                            activebackground="#00a1df",
                             foreground="#F9F9FF",  # цвет текста
                             padx="20",  # отступ от границ до содержимого по горизонтали
                             pady="8",  # отступ от границ до содержимого по вертикали

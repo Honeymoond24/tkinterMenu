@@ -19,7 +19,7 @@ class PageAbout(tk.Frame):
         label1.grid(row=1, column=1)
         btn_review = tk.Button(self, text="Поставить оценку",
                                # command=lambda: controller.show_frame("PageMain"),
-                               background="#D55448",  # фоновый цвет кнопки
+                               background="#00a1df",  # фоновый цвет кнопки
                                foreground="#F9F9FF",  # цвет текста
                                padx="20",  # отступ от границ до содержимого по горизонтали
                                pady="8",  # отступ от границ до содержимого по вертикали
@@ -28,7 +28,7 @@ class PageAbout(tk.Frame):
         btn_review.grid(row=2, column=1)
         button = tk.Button(self, text="Вернуться на главную страницу",
                            command=lambda: controller.show_frame("PageMain"),
-                           background="#D55448",  # фоновый цвет кнопки
+                           background="#00a1df",  # фоновый цвет кнопки
                            foreground="#F9F9FF",  # цвет текста
                            padx="20",  # отступ от границ до содержимого по горизонтали
                            pady="8",  # отступ от границ до содержимого по вертикали
