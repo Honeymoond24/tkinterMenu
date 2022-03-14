@@ -56,6 +56,7 @@ class AppMenu(Tk):  # Класс.
                           "Семейников А.Н.\n"
                           "Долгушин Н.Л.\n"
                           "Одарич К.Н.",
+                     justify='left',
                      font=tkfont.Font(family='Helvetica', size=12, slant="italic"))
         info.grid(row=2, column=0, columnspan=2)
         btn_review = Button(page_about, text="Поставить оценку",
