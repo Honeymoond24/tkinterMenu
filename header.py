@@ -17,7 +17,7 @@ class Header(tk.Frame):
                             font="16"  # высота шрифта
                             )
         print()
-        button2 = tk.Button(self.parent, text="Продукты", command=lambda: controller.show_frame("PageOne"),
+        button2 = tk.Button(self.parent, text="Продукты", command=lambda: controller.show_frame("Food"),
                             background="#00a1df",  # фоновый цвет кнопки
                             activebackground="#00a1df",
                             foreground="#F9F9FF",  # цвет текста
@@ -25,7 +25,7 @@ class Header(tk.Frame):
                             pady="8",  # отступ от границ до содержимого по вертикали
                             font="16"  # высота шрифта
                             )
-        button3 = tk.Button(self.parent, text="Меню дня", command=lambda: controller.show_frame("PageTwo"),
+        button3 = tk.Button(self.parent, text="Меню дня", command=lambda: controller.show_frame("DailyMenu"),
                             background="#00a1df",  # фоновый цвет кнопки
                             activebackground="#00a1df",
                             foreground="#F9F9FF",  # цвет текста

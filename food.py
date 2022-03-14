@@ -11,10 +11,10 @@ class Food(tk.Frame):  # Класс.
 
         top_frame = Frame(self)
         Header(top_frame, self.controller)  # Шапочка.
-        center = Frame(self, bg='#FEF2E4')
+        center = Frame(self)
 
         top_frame.grid(row=0, sticky="EW")
-        center.grid(row=1, column=0, sticky="NS")
+        center.grid(row=1, column=0, sticky="ns")
         self.cards0 = FoodCard(center, self.controller, "Мука")
         self.cards1 = FoodCard(center, self.controller, "Картофель")
         self.cards2 = FoodCard(center, self.controller, "Морковь")
