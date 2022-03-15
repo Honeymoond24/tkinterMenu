@@ -11,7 +11,7 @@ class PageMain(tk.Frame):
         # Фреймы, верстка
         top_frame = Frame(self)
         Header(top_frame, self.controller)
-        center = Frame(self, bg='#FEF2E4')
+        center = Frame(self)
 
         # layout all of the main containers
         self.parent.grid_rowconfigure(1, weight=1)
@@ -25,7 +25,7 @@ class PageMain(tk.Frame):
         center.grid_columnconfigure(1, weight=1)
 
         self.ctr_left = Frame(center, bg='#00bff6')
-        self.ctr_right = Frame(center, bg='#FEF2E4', padx=3, pady=3)
+        self.ctr_right = Frame(center, padx=3, pady=3)
 
         self.ctr_left.grid(row=0, column=0, sticky="ns")
         self.side_bar()
@@ -44,6 +44,7 @@ class PageMain(tk.Frame):
         # self.expanded = False  # Check if it is completely expanded
         self.grid_rowconfigure(1, weight=10)
         self.grid_columnconfigure(0, weight=1)
+        print(f"{__name__} loaded")
 
     def side_bar(self):  # Боковая панель с категориями
         # Make the buttons with the icons to be shown

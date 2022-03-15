@@ -44,3 +44,4 @@ class PageAbout(tk.Frame):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=10)
         self.grid_columnconfigure(2, weight=1)
+        print(f"{__name__} loaded")

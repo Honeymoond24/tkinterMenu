@@ -12,11 +12,11 @@ class DailyMenu(tk.Frame):  # Класс.
         Header(top_frame, self.controller)  # Шапочка.
         top_frame.grid(row=0, sticky="EW")
         self.center = Frame(self)
-        self.center.grid(row=1, column=0, sticky="ns")
+        self.center.grid(row=1, column=0, sticky="ns", pady=5)
 
-        self.label = tk.Label(self.center, background='#FD974F', foreground="#FEF2E4",
+        self.label = tk.Label(self.center, background='#00bff6', foreground="#FEF2E4",
                               text="Блюда на сегодня", font=controller.title_font)
-        self.label1 = tk.Label(self.center, background='#FD974F', foreground="#FEF2E4",
+        self.label1 = tk.Label(self.center, background='#00bff6', foreground="#FEF2E4",
                                text="Блюда на завтра", font=controller.title_font)
         self.cards = Card(self.center, self.controller, "Суп", 'card1')
         self.cards1 = Card(self.center, self.controller, "Яичница", 'card2')
@@ -49,3 +49,4 @@ class DailyMenu(tk.Frame):  # Класс.
         self.grid_columnconfigure(0, weight=10)
         # self.parent.grid_rowconfigure(1, weight=1)
         # self.parent.grid_columnconfigure(0, weight=10)
+        print(f"{__name__} loaded")

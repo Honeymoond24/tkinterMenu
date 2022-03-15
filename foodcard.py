@@ -9,7 +9,9 @@ class FoodCard(tk.Frame): #Класс.
         self.c = 0
         self.controller = controller
         self.label_text = label_text
-        self.card_frame = tk.Frame(self, padx="10", pady="8", background='#FD974F', highlightbackground="#805A3B",
+        self.card_frame = tk.Frame(self, padx="10", pady="8",
+                                   background="#00a1df",
+                                   highlightbackground="#805A3B",
                                    highlightthickness=1, bd=0, width=16)
 
         self.plus = PhotoImage(file='assets/plus.png')
@@ -23,9 +25,15 @@ class FoodCard(tk.Frame): #Класс.
         self.label_count = Label(self.card_frame, text="0", background='#FD974F', font=controller.title_font)
         self.label_count.grid(column=3, row=0, rowspan=2)
 
-        button1 = tk.Button(self.card_frame, background='#FD974F', activebackground="#FFA577", image=self.size_plus,
+        button1 = tk.Button(self.card_frame,
+                            background="#00a1df",
+                            foreground="#F9F9FF",
+                            activebackground="#FFA577", image=self.size_plus,
                             relief='flat', text="test", command=lambda: self.click_button('1'))
-        button2 = tk.Button(self.card_frame, background='#FD974F', activebackground="#FFA577", image=self.size_minus,
+        button2 = tk.Button(self.card_frame,
+                            background="#00a1df",
+                            foreground="#F9F9FF",
+                            activebackground="#FFA577", image=self.size_minus,
                             relief='flat', text="test", command=lambda: self.click_button('2'))
 
         button1.grid(column=2, row=0)
@@ -34,6 +42,7 @@ class FoodCard(tk.Frame): #Класс.
         self.card_frame.grid(row=0, column=0)
         self.card_frame.grid_rowconfigure(0, weight=10)
         self.card_frame.grid_columnconfigure(0, weight=1)
+        print(f"{__name__} loaded")
 
     def click_button(self, text): #Функция добавления продукта.
         if text == "1":

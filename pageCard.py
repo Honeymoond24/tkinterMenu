@@ -39,3 +39,4 @@ class PageCard(tk.Frame):  # Класс.
 
         # ctr_left = Frame(self.center, bg='blue')
         # ctr_right = Frame(self.center, bg='green')
+        print(f"{__name__} loaded")

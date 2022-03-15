@@ -35,3 +35,4 @@ class Card(tk.Frame): #Класс.
         button1.grid(column=1, row=1)
 
         self.cardframe.grid(row=1, column=1)
+        print(f"{__name__} loaded")

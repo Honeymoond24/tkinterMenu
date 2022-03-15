@@ -15,6 +15,7 @@ class AppMenu(Tk):  # Класс.
         self.view = Menu(self.m, tearoff=0)  # Тема
         # self.screensize = Menu(self.m, tearoff=0)  # Размер экрана
         self.about = Menu(self.m, tearoff=0)  # Справка
+        print(f"{__name__} loaded")
 
     def add_menu(self):
         self.parent.config(menu=self.m)
@@ -34,13 +35,14 @@ class AppMenu(Tk):  # Класс.
         # self.screensize.add_command(label="800x600", command=self.rectangle)
         # Меню справка
         self.m.add_cascade(label="Справка", menu=self.about)
-        self.about.add_command(label="Поставить оценку", command=lambda: self.parent.show_frame("PageAbout"))
+        self.about.add_command(label="Поставить оценку",
+                               command=lambda: webbrowser.open("https://github.com/Honeymoond24/tkinterMenu"))
         self.about.add_command(label="О программе", command=self.call_page_about)
 
     def call_page_about(self):  # Окно "О программе"
         page_about = Toplevel(self.controller, height=512, width=512, pady=10, padx=10)  # Окно "О программе"
         page_about.title('Ресторан Шакал: сведения')
-        page_about.iconbitmap('assets/logo.png')
+        page_about.iconbitmap('assets/logo.ico')
         logo = ImageTk.PhotoImage(Image.open("assets/logo.png"), height=256, width=256)
         logo_label = Label(page_about,
                            text="123",

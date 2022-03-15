@@ -17,11 +17,13 @@ class Application(tk.Tk):  # Класс.
                                       )
         self.multipliers = [1, 1.25, 1.5]  # 1280x720, 1600x900, 1920x1080
         self.multiplier = self.multipliers[0]
+        print(f"multiplier {self.multiplier}")
         self.colors = {"gray": []}
         self.iconbitmap('assets/logo.ico')
         self.title('Ресторан Шакал')
-        self.geometry(str(16 * 80 * self.multiplier) + "x" +  # 1280x720
-                      str(9 * 80 * self.multiplier) + "+50+50")
+        # self.geometry(str(16 * 80 * self.multiplier) + "x" +  # 1280x720
+        #               str(9 * 80 * self.multiplier) + "+50+50")
+        self.geometry("1280x576+50+50")
         container = tk.Frame(self, bg='#FEF2E4')  # Страницы
         # container.place(x=0, y=0)
         container.pack(side="top", fill="both", expand=False)
