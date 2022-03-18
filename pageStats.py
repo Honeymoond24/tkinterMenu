@@ -2,6 +2,7 @@ from tkinter import *
 from card import *
 from header import *
 import matplotlib
+
 matplotlib.use("TkAgg")
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg

@@ -16,7 +16,6 @@ class Header(tk.Frame):
                             pady="8",  # отступ от границ до содержимого по вертикали
                             font="16"  # высота шрифта
                             )
-        print()
         button2 = tk.Button(self.parent, text="Продукты", command=lambda: controller.show_frame("Food"),
                             background="#00a1df",  # фоновый цвет кнопки
                             activebackground="#00a1df",
@@ -55,4 +54,5 @@ class Header(tk.Frame):
         button2.grid(row=0, column=1, sticky="nsew")
         button3.grid(row=0, column=2, sticky="nsew")
         button4.grid(row=0, column=3, sticky="nsew")
+        print()
         print(f"{__name__} loaded")
