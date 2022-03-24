@@ -15,12 +15,11 @@ class Database:
     #                         (dish_id, dish_name, description, picture, weight, calories, dish_type, cost))
     #     self.conn.commit()
 
-    def select(self):
-        self.cursor.execute("""SELECT * FROM dish""")
-        for row in self.cursor.fetchall():
-            print(row)
+    def select(self, query):
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
 
 
-db = Database()
-# db.call('id2', 'name1')
-db.select()
+# db = Database()
+# # db.call('id2', 'name1')
+# db.select()

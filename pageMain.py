@@ -4,10 +4,11 @@ from header import *
 
 
 class PageMain(tk.Frame):
-    def __init__(self, parent, controller):
+    def __init__(self, parent, controller, database):
         tk.Frame.__init__(self, parent)
         self.parent = parent  # Родительский элемент
         self.controller = controller  # это кто?
+        self.database = database
         # Фреймы, верстка
         top_frame = Frame(self)
         Header(top_frame, self.controller)
@@ -40,9 +41,13 @@ class PageMain(tk.Frame):
 
         self.cards_frame = Frame(self.ctr_right)
         self.cards_frame.grid(row=1, column=0, columnspan=3)
-        self.cards = Card(self.cards_frame, self.controller, "Корейский суп", 'card1')
-        self.cards1 = Card(self.cards_frame, self.controller, "Корейский суп", 'card2')
-        self.cards2 = Card(self.cards_frame, self.controller, "Корейский суп", 'card3')
+        self.data = self.database.select("SELECT * FROM dish")
+        print(self.data)
+        print()
+        print(self.data[0][1])
+        self.cards = Card(self.cards_frame, self.controller, self.data[0][1], 'card1')
+        self.cards1 = Card(self.cards_frame, self.controller, self.data[1][1], 'card2')
+        self.cards2 = Card(self.cards_frame, self.controller, self.data[2][1], 'card3')
         self.cards.grid(row=0, column=1)
         self.cards1.grid(row=0, column=2)
         self.cards2.grid(row=0, column=3)

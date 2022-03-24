@@ -1,3 +1,4 @@
+from database import Database
 from pageMain import *  # Импортируем необходимые файлы зависимостей.
 from food import *
 from dailyMenu import *
@@ -25,14 +26,11 @@ class Application(tk.Tk):  # Класс.
         #               str(9 * 80 * self.multiplier) + "+50+50")
         self.geometry("1280x540+50+50")
         self.container = tk.Frame(self, bg='#FEF2E4')  # Страницы
-        # self.container.place(x=0, y=0)
         self.container.pack(side="top", fill="both", expand=False)
-        # self.container.grid(row=0, column=0, sticky='nsew')
-        # self.container.grid_rowconfigure(0, weight=1)
-        # self.container.grid_columnconfigure(0, weight=1)
+        self.db = Database()
         self.frames = {}
 
-        self.frames["PageMain"] = PageMain(parent=self.container, controller=self)
+        self.frames["PageMain"] = PageMain(parent=self.container, controller=self, database=self.db)
         self.frames["Food"] = Food(parent=self.container, controller=self)
         self.frames["DailyMenu"] = DailyMenu(parent=self.container, controller=self)
         # self.frames["PageAbout"] = PageAbout(parent=self.container, controller=self)
