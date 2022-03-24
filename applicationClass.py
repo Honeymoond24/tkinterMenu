@@ -47,12 +47,18 @@ class Application(tk.Tk):  # Класс.
         self.show_frame("PageMain")
         self.menu = AppMenu(self, self.container)
         self.menu.add_menu()
-        self.database= Database()
-        for row in self.database.select("select * from dish"):
-            print(row)
-
-
+        self.database = Database()
+        # for row in self.database.select("select * from dish"):
+        #     print(row)
 
     def show_frame(self, page_name):
         self.frame = self.frames[page_name]
+        self.frame.tkraise()
+
+    def show_frame_food(self, page_name, id):
+        if "PageCard" in self.frames:
+            self.frames["PageCard"].destroy()
+        self.frames["PageCard"] = PageCard(parent=self.container, controller=self, database=self.db, link=id)
+        self.frames["PageCard"].grid(row=0, column=0, sticky="nsew")
+        self.frame = self.frames["PageCard"]
         self.frame.tkraise()
