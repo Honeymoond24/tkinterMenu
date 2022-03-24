@@ -39,28 +39,38 @@ class PageMain(tk.Frame):
         self.btn = tk.Button(self.ctr_right, text="Поиск", width=10)
         self.btn.grid(row=0, column=2, padx=10, pady=10, rowspan=1)
 
-        self.cards_frame = Frame(self.ctr_right)
+        self.cards_frame = Frame(self.ctr_right, height=50)
         self.cards_frame.grid(row=1, column=0, columnspan=3)
         self.data = self.database.select("SELECT * FROM dish")
         print(self.data)
         print()
         print(self.data[0][1])
-        self.myArray=[]
+        self.myArray = []
         # self.cards = Card(self.cards_frame, self.controller, self.data[0][1], 'card1')
         # self.cards1 = Card(self.cards_frame, self.controller, self.data[1][1], 'card2')
         # self.cards2 = Card(self.cards_frame, self.controller, self.data[2][1], 'card3')
         # self.cards.grid(row=0, column=1)
         # self.cards1.grid(row=0, column=2)
         # self.cards2.grid(row=0, column=3)
-        self.r=0
-        for i in range(len(self.data)):
-            j=i%3
-           
-            if i%3 == 0:
-                self.r+=1
-            self.myArray.append(Card(self.cards_frame, self.controller, self.data[i][1], self.data[i][0]).grid(row=self.r, column=j,sticky="w"))
-            
+        # self.scrollbary = Scrollbar(self.cards_frame)
+        # self.scrollbary.grid(row=0, column=3, rowspan=len(self.data), sticky="ns")
+        # textbox = Text(text="2")
+        # textbox.pack()
+        # textbox.yview
+        # self.scroll = Scrollbar(self.cards_frame)
+        # self.scroll.grid(row=0, column=3, rowspan=len(self.data), sticky="ns")
+        # self.scroll['command'] = self.cards_frame.yview
+        # self.textbox['yscrollcommand'] = self.scroll.set
 
+        self.r = 0
+        for i in range(len(self.data)):
+            j = i % 3
+
+            if i % 3 == 0:
+                self.r += 1
+            self.myArray.append(
+                Card(self.cards_frame, self.controller, self.data[i][1], self.data[i][0]).grid(row=self.r, column=j,
+                                                                                               sticky="w"))
 
         # Переменные для боковой панели
         # self.min_w = 50  # Minimum width of the frame

@@ -1,18 +1,19 @@
 from tkinter import *
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from card import *
 from header import *
 import matplotlib
 
 matplotlib.use("TkAgg")
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
 class PageStats(tk.Frame):
-    def __init__(self, parent, controller):
+    def __init__(self, parent, controller, database):
         tk.Frame.__init__(self, parent)
         self.parent = parent  # Родительский элемент
         self.controller = controller  # это кто?
+        self.database = database
         # Фреймы, верстка
         self.top_frame = Frame(self)
         Header(self.top_frame, self.controller)
@@ -42,6 +43,7 @@ class PageStats(tk.Frame):
         self.frames["stats_frame2"].grid(row=0, column=1, sticky="ns")
         self.frames["stats_frame3"].grid(row=0, column=1, sticky="ew")
         self.frames["stats_frame4"].grid(row=0, column=1, sticky="nsew")
+        self.show_frame("stats_frame1")
 
         # Статистика 1
         self.canvas1 = tk.Canvas(self.frames["stats_frame1"], bg='black')

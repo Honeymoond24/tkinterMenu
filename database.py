@@ -1,12 +1,13 @@
 import pyodbc
 
+
 class Database:
     def __init__(self):
         self.conn = pyodbc.connect(
             r'Driver={Microsoft Access Driver (*.mdb, *.accdb)}; '
-            r'DBQ=C:\\Users\\Artem\Desktop\\lab2\\sh_dababase.mdb;'  # Путь Артема
-            # r'DBQ=C:\\Users\\daniy\\OneDrive\\Рабочий стол\\Учеба\\Программная инженерия\\moduls\\mod2\\'
-            # r'tkinterMenu\\sh_dababase.mdb;'
+            # r'DBQ=C:\\Users\\Artem\Desktop\\lab2\\sh_dababase.mdb;'  # Путь Артема
+            r'DBQ=C:\\Users\\daniy\\OneDrive\\Рабочий стол\\Учеба\\Программная инженерия\\moduls\\mod2\\'
+            r'tkinterMenu\\sh_dababase.mdb;'
         )
         self.cursor = self.conn.cursor()
 
@@ -18,7 +19,6 @@ class Database:
     def select(self, query):
         self.cursor.execute(query)
         return self.cursor.fetchall()
-
 
 # db = Database()
 # # db.call('id2', 'name1')
