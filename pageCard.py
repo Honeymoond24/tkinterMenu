@@ -18,7 +18,7 @@ class PageCard(tk.Frame):  # Класс.
 
         self.data = self.database.select("SELECT * FROM dish")
         
-        self.ph_img = tk.PhotoImage(file='assets/111.png').subsample(15, 15)
+        self.ph_img = tk.PhotoImage(file=self.data[link-1][3]).subsample(15, 15)
         self.image = Button(self.center, image=self.ph_img, relief='flat')
         
         self.image.grid(row=1, column=0, sticky="N")
