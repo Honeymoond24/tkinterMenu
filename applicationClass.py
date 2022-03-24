@@ -35,14 +35,14 @@ class Application(tk.Tk):  # Класс.
         self.frames["DailyMenu"] = DailyMenu(parent=self.container, controller=self)
         # self.frames["PageAbout"] = PageAbout(parent=self.container, controller=self)
         #self.frames["PageCard"] = PageCard(parent=self.container, controller=self, link='link')
-        self.frames["PageStats"] = PageStats(parent=self.container, controller=self)
+        self.frames["PageStats"] = PageStats(parent=self.container, controller=self,database=self.db)
 
         self.frames["PageMain"].grid(row=0, column=0, sticky="nsew")
         self.frames["Food"].grid(row=0, column=0, sticky="nsew")
         self.frames["DailyMenu"].grid(row=0, column=0, sticky="nsew")
         # self.frames["PageAbout"].grid(row=0, column=0, sticky="nsew")
        # self.frames["PageCard"].grid(row=0, column=0, sticky="nsew")
-        self.frames["PageStats"].grid(row=0, column=0, sticky="nsew")
+        self.frames["PageStats"].grid(row=0, column=0, sticky="nsew",)
 
         self.show_frame("PageMain")
         self.menu = AppMenu(self, self.container)
