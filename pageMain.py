@@ -69,7 +69,7 @@ class PageMain(tk.Frame):
     def side_bar(self):  # Боковая панель с категориями
         # Make the buttons with the icons to be shown
         btn0 = Button(self.ctr_left, text="Все", background="#896E69", foreground="#D55448", activebackground="#00bff6",
-                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', highlightthickness=0, width=16)
+                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', highlightthickness=0, width=16,command=lambda: self.type_select("SELECT * FROM dish"))
         btn1 = Button(self.ctr_left,
                       text="Первые блюда",
                       background="#00bff6",  # фоновый цвет кнопки
@@ -81,23 +81,23 @@ class PageMain(tk.Frame):
                       relief='flat',
                       overrelief='flat',
                       activebackground="#00bff6",
-                      width=16
+                      width=16,command=lambda: self.type_select("SELECT * FROM dish WHERE type = 'first'")
                       )
         btn2 = Button(self.ctr_left, text="Вторые блюда", background="#00bff6", foreground="#F9F9FF",
                       activebackground="#00bff6",
                       padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16,command=lambda: self.type_select("SELECT * FROM dish WHERE type = 'second'"))
         btn3 = Button(self.ctr_left, text="Салаты", background="#896E69", foreground="#F9F9FF",
                       activebackground="#00bff6",
-                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
+                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16,command=lambda: self.type_select("SELECT * FROM dish WHERE type = 'salat'"))
         btn4 = Button(self.ctr_left, text="Закуски", background="#00bff6", foreground="#F9F9FF",
                       activebackground="#00bff6",
-                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
+                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16,command=lambda: self.type_select("SELECT * FROM dish WHERE type = 'snack'"))
         btn5 = Button(self.ctr_left, text="Десерт", background="#00bff6", foreground="#F9F9FF",
                       activebackground="#00bff6",
-                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
+                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16,command=lambda: self.type_select("SELECT * FROM dish WHERE type = 'dessert'"))
         btn6 = Button(self.ctr_left, text="Напитки", background="#00bff6", foreground="#F9F9FF",
                       activebackground="#00bff6",
-                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
+                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16,command=lambda: self.type_select("SELECT * FROM dish WHERE type = 'drink'"))
         btn0.grid(row=0, column=0, pady=10)
         btn1.grid(row=1, column=0, pady=10)
         btn2.grid(row=2, column=0, pady=10)
@@ -108,6 +108,8 @@ class PageMain(tk.Frame):
 
     def type_select(self,select):
         self.cards_frame.destroy()
+        self.cards_frame = Frame(self.ctr_right)
+        self.cards_frame.grid(row=1, column=0, columnspan=3)
         self.data = self.database.select(select)
         self.myArray=[]
         self.r=0
