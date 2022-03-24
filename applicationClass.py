@@ -47,7 +47,11 @@ class Application(tk.Tk):  # Класс.
         self.show_frame("PageMain")
         self.menu = AppMenu(self, self.container)
         self.menu.add_menu()
-        # self.menu.call_page_about()
+        self.database= Database()
+        for row in self.database.select("select * from dish"):
+            print(row)
+        
+        
 
     def show_frame(self, page_name):
         self.frame = self.frames[page_name]
