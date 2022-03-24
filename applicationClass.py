@@ -34,7 +34,7 @@ class Application(tk.Tk):  # Класс.
         self.frames["Food"] = Food(parent=self.container, controller=self)
         self.frames["DailyMenu"] = DailyMenu(parent=self.container, controller=self)
         # self.frames["PageAbout"] = PageAbout(parent=self.container, controller=self)
-        self.frames["PageCard"] = PageCard(parent=self.container, controller=self, link='link')
+        # self.frames["PageCard"] = PageCard(parent=self.container, controller=self, link='link')
         self.frames["PageStats"] = PageStats(parent=self.container, controller=self, database=self.db)
 
         self.frames["PageMain"].grid(row=0, column=0, sticky="nsew")
@@ -50,8 +50,8 @@ class Application(tk.Tk):  # Класс.
         self.database= Database()
         for row in self.database.select("select * from dish"):
             print(row)
-        
-        
+
+
 
     def show_frame(self, page_name):
         self.frame = self.frames[page_name]

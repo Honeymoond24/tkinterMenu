@@ -24,7 +24,7 @@ class Card(tk.Frame):  # Класс.
                          font=controller.title_font)
         label.grid(column=1, row=0)
         # self.controller.frames[self.link] = PageCard(parent=self, controller=controller, link=self.link)
-        button1 = tk.Button(self.cardframe, text="Посмотреть", command=lambda: controller.show_frame('PageCard'),
+        button1 = tk.Button(self.cardframe, text="Посмотреть", command=lambda: controller.show_frame_food('PageCard',link),
                             background="#00a1df",  # фоновый цвет кнопки
                             activebackground="#00a1df",
                             foreground="#FEF2E4",  # цвет текста
