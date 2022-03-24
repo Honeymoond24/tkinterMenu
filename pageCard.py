@@ -3,10 +3,12 @@ from header import *
 
 
 class PageCard(tk.Frame):  # Класс.
-    def __init__(self, parent, controller, link):  # Конструктор описания карточки.
+    def __init__(self, parent, controller,database, link):  # Конструктор описания карточки.
         tk.Frame.__init__(self, parent)
         self.parent = parent
+        
         self.controller = controller
+        self.database=database
         self.link = link
         # print(self.link)
 
@@ -14,13 +16,16 @@ class PageCard(tk.Frame):  # Класс.
         Header(top_frame, self.controller)
         self.center = Frame(self)  # #FEF2E4 гриб
 
+        self.data = self.database.select("SELECT * FROM dish")
+        
         self.ph_img = tk.PhotoImage(file='assets/111.png').subsample(15, 15)
         self.image = Button(self.center, image=self.ph_img, relief='flat')
+        
         self.image.grid(row=1, column=0, sticky="N")
 
-        self.title = Label(self.center, text="Корейский суп Чов Зва", font=20)
+        self.title = Label(self.center, text=self.data[self.link-1][1], font=20)
         self.description = Label(self.center,
-                                 text="Данное блюдо очень распространено в Северной Корее. \nЕго рецепт очень сложен.",
+                                 text=self.data[self.link-1][2],
                                  font=20)
         self.title.grid(row=1, column=1, sticky="N")
         self.description.grid(row=2, column=1, sticky="N")
