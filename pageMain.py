@@ -45,12 +45,22 @@ class PageMain(tk.Frame):
         print(self.data)
         print()
         print(self.data[0][1])
-        self.cards = Card(self.cards_frame, self.controller, self.data[0][1], 'card1')
-        self.cards1 = Card(self.cards_frame, self.controller, self.data[1][1], 'card2')
-        self.cards2 = Card(self.cards_frame, self.controller, self.data[2][1], 'card3')
-        self.cards.grid(row=0, column=1)
-        self.cards1.grid(row=0, column=2)
-        self.cards2.grid(row=0, column=3)
+        self.myArray=[]
+        # self.cards = Card(self.cards_frame, self.controller, self.data[0][1], 'card1')
+        # self.cards1 = Card(self.cards_frame, self.controller, self.data[1][1], 'card2')
+        # self.cards2 = Card(self.cards_frame, self.controller, self.data[2][1], 'card3')
+        # self.cards.grid(row=0, column=1)
+        # self.cards1.grid(row=0, column=2)
+        # self.cards2.grid(row=0, column=3)
+        self.r=0
+        for i in range(len(self.data)):
+            j=i%3
+           
+            if i%3 == 0:
+                self.r+=1
+            self.myArray.append(Card(self.cards_frame, self.controller, self.data[i][1], self.data[i][0]).grid(row=self.r, column=j,sticky="w"))
+            
+
 
         # Переменные для боковой панели
         # self.min_w = 50  # Minimum width of the frame
