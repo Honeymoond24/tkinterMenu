@@ -46,12 +46,7 @@ class PageMain(tk.Frame):
         print()
         print(self.data[0][1])
         self.myArray=[]
-        # self.cards = Card(self.cards_frame, self.controller, self.data[0][1], 'card1')
-        # self.cards1 = Card(self.cards_frame, self.controller, self.data[1][1], 'card2')
-        # self.cards2 = Card(self.cards_frame, self.controller, self.data[2][1], 'card3')
-        # self.cards.grid(row=0, column=1)
-        # self.cards1.grid(row=0, column=2)
-        # self.cards2.grid(row=0, column=3)
+      
         self.r=0
         for i in range(len(self.data)):
             j=i%3
@@ -90,7 +85,7 @@ class PageMain(tk.Frame):
                       )
         btn2 = Button(self.ctr_left, text="Вторые блюда", background="#00bff6", foreground="#F9F9FF",
                       activebackground="#00bff6",
-                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
+                      padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16,command=lambda: self.type_select("SELECT * FROM dish WHERE type = 'second'"))
         btn3 = Button(self.ctr_left, text="Салаты", background="#896E69", foreground="#F9F9FF",
                       activebackground="#00bff6",
                       padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
@@ -110,3 +105,15 @@ class PageMain(tk.Frame):
         btn4.grid(row=4, column=0, pady=10)
         btn5.grid(row=5, column=0, pady=10)
         btn6.grid(row=6, column=0, pady=10)
+
+    def type_select(self,select):
+        self.cards_frame.destroy()
+        self.data = self.database.select(select)
+        self.myArray=[]
+        self.r=0
+        for i in range(len(self.data)):
+            j=i%3
+            if i%3 == 0:
+                self.r+=1
+            self.myArray.append(Card(self.cards_frame, self.controller, self.data[i][1], self.data[i][0]).grid(row=self.r, column=j,sticky="w"))
+            
