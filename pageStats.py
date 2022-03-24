@@ -30,43 +30,30 @@ class PageStats(tk.Frame):
         self.center.grid_columnconfigure(1, weight=1)
 
         self.ctr_left = Frame(self.center, bg='#00bff6')
-        self.ctr_right = Frame(self.center,
-                               width=512, height=50,
-                               padx=20, pady=20)
+        self.frames = {"stats_frame1": Frame(self.center),
+                       "stats_frame2": Frame(self.center),
+                       "stats_frame3": Frame(self.center),
+                       "stats_frame4": Frame(self.center)}
 
         self.ctr_left.grid(row=0, column=0, sticky="ns")
         self.side_bar()
-        self.ctr_right.grid(row=0, column=1, sticky="ns")
-
         # Переменные для боковой панели
-        # self.stats_frame1 = Frame(self.ctr_right, bg="gray",
-        #                           width=720, height=360,
-        #                           padx=20, pady=20).pack()
-        self.canvas = tk.Canvas(self.ctr_right)
+        self.frames["stats_frame1"].grid(row=0, column=1, sticky="nsew")
+        self.frames["stats_frame2"].grid(row=0, column=1, sticky="ns")
+        self.frames["stats_frame3"].grid(row=0, column=1, sticky="ew")
+        self.frames["stats_frame4"].grid(row=0, column=1, sticky="nsew")
 
-        # self.frameChartsLT = Frame(self.stats_frame1)
-        # self.frameChartsLT.pack()
+        # Статистика 1
+        self.canvas1 = tk.Canvas(self.frames["stats_frame1"], bg='black')
         self.stockListExp = ['AMZN', 'AAPL', 'JETS', 'CCL', 'NCLH']
         self.stockSplitExp = [15, 25, 40, 10, 10]
-        self.fig = Figure(
-            # figsize=(5, 4), dpi=100
-        )  # create a figure object
-        self.ax = self.fig.add_subplot(111)  # add an Axes to the figure
-        self.ax.pie(self.stockSplitExp, radius=2, labels=self.stockListExp, autopct='%0.2f%%', shadow=True, )
-        self.chart1 = FigureCanvasTkAgg(self.fig, self.canvas)
+        self.fig1 = Figure()  # create a figure object
+        self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp, autopct='%0.2f%%', shadow=True, )
+        self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
         self.chart1.get_tk_widget().pack()
-        self.canvas.pack()
-        # self.canvas = FigureCanvasTkAgg(self.fig, self.stats_frame1)
-        # self.canvas.get_tk_widget().grid(row=0, column=0)
+        self.canvas1.pack()
 
-        # self.stats_frame2 = Frame(self.ctr_right, bg="gray",
-        #                           width=720, height=360, padx=20, pady=20).grid(row=0, column=0)
-        # self.stats_frame3 = Frame(self.ctr_right, bg="gray",
-        #                           width=720, height=360, padx=20, pady=20).grid(row=0, column=0)
-        # self.stats_frame4 = Frame(self.ctr_right, bg="gray",
-        #                           width=720, height=360, padx=20, pady=20).grid(row=0, column=0)
-        # self.date_select = tk.Entry(self.ctr_right, width=20)
-        # self.date_select.grid(row=1, column=0, padx=10, pady=10, sticky='e', rowspan=1)
         self.grid_rowconfigure(1, weight=10)
         self.grid_columnconfigure(0, weight=1)
         print(f"{__name__} loaded")
@@ -84,18 +71,26 @@ class PageStats(tk.Frame):
                       relief='flat',
                       overrelief='flat',
                       activebackground="#00bff6",
-                      width=16
+                      width=16,
+                      command=lambda: self.show_frame("stats_frame1")
                       )
         btn2 = Button(self.ctr_left, text="Блюда чаще всего\nв меню", background="#00bff6", foreground="#F9F9FF",
                       activebackground="#00bff6",
+                      command=lambda: self.show_frame("stats_frame2"),
                       padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
         btn3 = Button(self.ctr_left, text="Самые затрачиваемые\nпродукты", background="#896E69", foreground="#F9F9FF",
                       activebackground="#00bff6",
+                      command=lambda: self.show_frame("stats_frame3"),
                       padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
         btn4 = Button(self.ctr_left, text="Самые популярные\nблюда", background="#00bff6", foreground="#F9F9FF",
                       activebackground="#00bff6",
+                      command=lambda: self.show_frame("stats_frame4"),
                       padx="20", pady="8", font="16", bg='#00bff6', relief='flat', width=16)
         btn1.grid(row=0, column=0, pady=10)
         btn2.grid(row=1, column=0, pady=10)
         btn3.grid(row=2, column=0, pady=10)
         btn4.grid(row=3, column=0, pady=10)
+
+    def show_frame(self, page_name):
+        self.frame = self.frames[page_name]
+        self.frame.tkraise()

@@ -23,7 +23,7 @@ class Application(tk.Tk):  # Класс.
         self.title('Ресторан Шакал')
         # self.geometry(str(16 * 80 * self.multiplier) + "x" +  # 1280x720
         #               str(9 * 80 * self.multiplier) + "+50+50")
-        self.geometry("1280x600+50+50")
+        self.geometry("1280x566+50+50")
         self.container = tk.Frame(self, bg='#FEF2E4')  # Страницы
         # self.container.place(x=0, y=0)
         self.container.pack(side="top", fill="both", expand=False)
