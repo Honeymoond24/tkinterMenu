@@ -19,6 +19,13 @@ class Database:
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
+    def insert(self, query):
+        
+        self.cursor.execute(query)
+        self.conn.commit()
+        
+    
+
 
 # db = Database()
 # # db.call('id2', 'name1')

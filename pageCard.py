@@ -1,5 +1,6 @@
 from tkinter import *
 from header import *
+from datetime import datetime
 
 
 class PageCard(tk.Frame):  # Класс.
@@ -20,7 +21,8 @@ class PageCard(tk.Frame):  # Класс.
         
         self.ph_img = tk.PhotoImage(file=self.data[link-1][3]).subsample(15, 15)
         self.image = Button(self.center, image=self.ph_img, relief='flat')
-        
+        self.order=Button(self.center,text="Заказать",command=lambda: self.send_order('''INSERT INTO  order ([dish_id],[date_order]) VALUES (1,'1')'''))
+        self.order.grid(row=4, column=0, sticky="N")
         self.image.grid(row=1, column=0, sticky="N")
 
         self.title = Label(self.center, text=self.data[self.link-1][1], font=20)
@@ -45,3 +47,7 @@ class PageCard(tk.Frame):  # Класс.
         # ctr_left = Frame(self.center, bg='blue')
         # ctr_right = Frame(self.center, bg='green')
         print(f"{__name__} loaded")
+    def send_order(self,select):
+        self.select=select
+       
+        self.data = self.database.insert(self.select)
