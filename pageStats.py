@@ -1,20 +1,21 @@
 from tkinter import *
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from card import *
 from header import *
 import matplotlib
 
 matplotlib.use("TkAgg")
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
 class PageStats(tk.Frame):
-    def __init__(self, parent, controller, database):
+    def __init__(self, parent, controller,database):
         tk.Frame.__init__(self, parent)
         self.parent = parent  # Родительский элемент
         self.controller = controller  # это кто?
-        self.database = database
+        self.database=database
         # Фреймы, верстка
+
         self.top_frame = Frame(self)
         Header(self.top_frame, self.controller)
         self.center = Frame(self)
@@ -43,15 +44,72 @@ class PageStats(tk.Frame):
         self.frames["stats_frame2"].grid(row=0, column=1, sticky="ns")
         self.frames["stats_frame3"].grid(row=0, column=1, sticky="ew")
         self.frames["stats_frame4"].grid(row=0, column=1, sticky="nsew")
-        self.show_frame("stats_frame1")
 
         # Статистика 1
+        self.data = self.database.select("SELECT * FROM dish")
+
         self.canvas1 = tk.Canvas(self.frames["stats_frame1"], bg='black')
-        self.stockListExp = ['AMZN', 'AAPL', 'JETS', 'CCL', 'NCLH']
-        self.stockSplitExp = [15, 25, 40, 10, 10]
+        self.stockListExp = []
+        self.stockSplitExp = []
+        for i in range(len(self.data)):
+            self.stockSplitExp.append(self.data[i][5])
+            self.stockListExp.append(self.data[i][1])
         self.fig1 = Figure()  # create a figure object
         self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
-        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp, autopct='%0.2f%%', shadow=True, )
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
+        self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
+        self.chart1.get_tk_widget().pack()
+        self.canvas1.pack()
+
+        self.grid_rowconfigure(1, weight=10)
+        self.grid_columnconfigure(0, weight=1)
+        print(f"{__name__} loaded")
+
+        self.data = self.database.select("SELECT * FROM dish")
+
+        self.canvas1 = tk.Canvas(self.frames["stats_frame2"], bg='black')
+        self.stockListExp = []
+        self.stockSplitExp = []
+        for i in range(len(self.data)):
+            self.stockSplitExp.append(self.data[i][5])
+            self.stockListExp.append(self.data[i][1])
+        self.fig1 = Figure()  # create a figure object
+        self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
+        self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
+        self.chart1.get_tk_widget().pack()
+        self.canvas1.pack()
+
+        self.grid_rowconfigure(1, weight=10)
+        self.grid_columnconfigure(0, weight=1)
+        print(f"{__name__} loaded")
+
+        self.canvas1 = tk.Canvas(self.frames["stats_frame3"], bg='black')
+        self.stockListExp = []
+        self.stockSplitExp = []
+        for i in range(len(self.data)):
+            self.stockSplitExp.append(self.data[i][5])
+            self.stockListExp.append(self.data[i][1])
+        self.fig1 = Figure()  # create a figure object
+        self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
+        self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
+        self.chart1.get_tk_widget().pack()
+        self.canvas1.pack()
+
+        self.grid_rowconfigure(1, weight=10)
+        self.grid_columnconfigure(0, weight=1)
+        print(f"{__name__} loaded")
+
+        self.canvas1 = tk.Canvas(self.frames["stats_frame4"], bg='black')
+        self.stockListExp = []
+        self.stockSplitExp = []
+        for i in range(len(self.data)):
+            self.stockSplitExp.append(self.data[i][5])
+            self.stockListExp.append(self.data[i][1])
+        self.fig1 = Figure()  # create a figure object
+        self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
         self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
         self.chart1.get_tk_widget().pack()
         self.canvas1.pack()
