@@ -21,8 +21,12 @@ class AppMenu(Tk):  # Класс.
         self.parent.config(menu=self.m)
         # Меню главное меню
         self.m.add_cascade(label="Меню", menu=self.menu)
-        self.menu.add_command(label="Открыть базу данных", command=self.parent.destroy)
-        self.menu.add_command(label="Сохранить базу данных", command=self.parent.destroy)
+        self.menu.add_command(label="Открыть базу данных",
+                              # command=self.parent.destroy
+                              )
+        self.menu.add_command(label="Сохранить базу данных",
+                              # command=self.parent.destroy
+                              )
         self.menu.add_separator()
         self.menu.add_command(label="Выйти", command=self.parent.destroy)
         # Меню тема

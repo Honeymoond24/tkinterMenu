@@ -5,10 +5,11 @@ from foodcard import FoodCard
 
 
 class Food(tk.Frame):  # Класс.
-    def __init__(self, parent, controller):  # Конструктор Продуктов.
+    def __init__(self, parent, controller, database):  # Конструктор Продуктов.
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.controller = controller
+        self.database = database
 
         top_frame = Frame(self)
         Header(top_frame, self.controller)  # Шапочка.
@@ -21,7 +22,9 @@ class Food(tk.Frame):  # Класс.
         self.ctr_right.grid(row=0, column=1, sticky="nse")
         top_frame.grid(row=0, sticky="EW")
         center.grid(row=1, column=0, sticky="nsew")
-        self.tree = ttk.Treeview(self.ctr_right, height=15)
+        # define columns
+        columns = ('id', 'product_name', 'units', 'count')
+        self.tree = ttk.Treeview(self.ctr_right, height=15, columns=columns, show='headings')
         self.table_tree()
 
         # layout all of the main containers
@@ -32,28 +35,54 @@ class Food(tk.Frame):  # Класс.
         print(f"{__name__} loaded")
 
     def table_tree(self):
-        self.lb0 = tk.Label(self.ctr_right, text="                                    ")
-        self.lb0.grid(row=0, column=0, padx=10, pady=10, sticky='w')
-        self.lb1 = tk.Label(self.ctr_right, text="Поиск:")
-        self.lb1.grid(row=0, column=1, padx=10, pady=10, sticky='w')
-        self.search_entry = tk.Entry(self.ctr_right, width=100)
-        self.search_entry.grid(row=0, column=2, padx=10, pady=10, sticky='e', rowspan=1)
-        self.btn = tk.Button(self.ctr_right, text="Поиск", width=10)
-        self.btn.grid(row=0, column=3, padx=10, pady=10, rowspan=1)
+        self.lb0 = tk.Label(self.ctr_right, text="                                                    "
+                                                 "                                                    ")
 
-        self.tree["columns"] = ("one", "two", "three", "four", "five")
-        self.tree.column("one", width=80)
-        self.tree.column("two", width=160)
-        self.tree.column("three", width=120)
-        self.tree.column("four", width=120)
-        self.tree.column("five", width=80)
-        self.tree.heading("one", text="Номер")
-        self.tree.heading("two", text="Название")
-        self.tree.heading("three", text="Единица измерения")
-        self.tree.heading("four", text="Количество")
-        self.tree.heading("five", text="Изменить")
-        self.tree["show"] = "headings"
+        self.lb0.grid(row=0, column=0, padx=10, pady=10, sticky='w')
+        # define headings
+        self.tree.heading('id', text='Номер')
+        self.tree.heading('product_name', text='Название')
+        self.tree.heading('units', text='Ед.измерения')
+        self.tree.heading('count', text='Количество')
+
+        # get data
+        self.data = self.database.select("SELECT * FROM products_item")
+        self.products = []
+        for row in self.data:
+            self.products.append((f'{row[0]}', f'{row[1]}', f'{row[3]}', f'{row[2]}'))
+
+        # add data to the treeview
+        for product in self.products:
+            self.tree.insert('', tk.END, values=product)
+
+        self.tree.bind('<<TreeviewSelect>>', self.item_selected)
+        # self.lb1 = tk.Label(self.ctr_right, text="Поиск:")
+        # self.lb1.grid(row=0, column=1, padx=10, pady=10, sticky='w')
+        # self.search_entry = tk.Entry(self.ctr_right, width=100)
+        # self.search_entry.grid(row=0, column=2, padx=10, pady=10, sticky='e', rowspan=1)
+        # self.btn = tk.Button(self.ctr_right, text="Поиск", width=10)
+        # self.btn.grid(row=0, column=3, padx=10, pady=10, rowspan=1)
+        #
+        # self.tree["columns"] = ("one", "two", "three", "four", "five")
+        # self.tree.column("one", width=80)
+        # self.tree.column("two", width=160)
+        # self.tree.column("three", width=120)
+        # self.tree.column("four", width=120)
+        # self.tree.column("five", width=80)
+        # self.tree.heading("one", text="Номер")
+        # self.tree.heading("two", text="Название")
+        # self.tree.heading("three", text="Единица измерения")
+        # self.tree.heading("four", text="Количество")
+        # self.tree.heading("five", text="Изменить")
+        # self.tree["show"] = "headings"
         self.tree.grid(row=1, column=1, columnspan=3, sticky='ew', pady=5)
+
+    def item_selected(self, event):
+        for selected_item in self.tree.selection():
+            item = self.tree.item(selected_item)
+            record = item['values']
+            # show a message
+            # showinfo(title='Information', message=','.join(record))
 
     def side_bar(self):  # Боковая панель с категориями
         # Make the buttons with the icons to be shown
@@ -94,3 +123,6 @@ class Food(tk.Frame):  # Класс.
         btn4.grid(row=4, column=0, pady=10)
         btn5.grid(row=5, column=0, pady=10)
         btn6.grid(row=6, column=0, pady=10)
+        label = Label(self.ctr_left, background="#00bff6", foreground="#00bff6",
+                      text="\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+        label.grid(row=7, column=0, pady=10)

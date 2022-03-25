@@ -9,11 +9,11 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
 class PageStats(tk.Frame):
-    def __init__(self, parent, controller,database):
+    def __init__(self, parent, controller, database):
         tk.Frame.__init__(self, parent)
         self.parent = parent  # Родительский элемент
         self.controller = controller  # это кто?
-        self.database=database
+        self.database = database
         # Фреймы, верстка
 
         self.top_frame = Frame(self)
@@ -56,10 +56,14 @@ class PageStats(tk.Frame):
             self.stockListExp.append(self.data[i][1])
         self.fig1 = Figure()  # create a figure object
         self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
-        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp, shadow=True, counterclock=False)
         self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
         self.chart1.get_tk_widget().pack()
         self.canvas1.pack()
+        self.search_entry1 = tk.Entry(self.frames["stats_frame1"], width=100)
+        self.search_entry1.pack()
+        self.btn1 = tk.Button(self.frames["stats_frame1"], text="Поиск", width=10)
+        self.btn1.pack()
 
         self.grid_rowconfigure(1, weight=10)
         self.grid_columnconfigure(0, weight=1)
@@ -75,10 +79,14 @@ class PageStats(tk.Frame):
             self.stockListExp.append(self.data[i][1])
         self.fig1 = Figure()  # create a figure object
         self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
-        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp, shadow=True, counterclock=False)
         self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
         self.chart1.get_tk_widget().pack()
         self.canvas1.pack()
+        self.search_entry2 = tk.Entry(self.frames["stats_frame2"], width=100)
+        self.search_entry2.pack()
+        self.btn2 = tk.Button(self.frames["stats_frame2"], text="Поиск", width=10)
+        self.btn2.pack()
 
         self.grid_rowconfigure(1, weight=10)
         self.grid_columnconfigure(0, weight=1)
@@ -92,7 +100,7 @@ class PageStats(tk.Frame):
             self.stockListExp.append(self.data[i][1])
         self.fig1 = Figure()  # create a figure object
         self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
-        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp, shadow=True, counterclock=False)
         self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
         self.chart1.get_tk_widget().pack()
         self.canvas1.pack()
@@ -109,7 +117,7 @@ class PageStats(tk.Frame):
             self.stockListExp.append(self.data[i][1])
         self.fig1 = Figure()  # create a figure object
         self.ax1 = self.fig1.add_subplot(111)  # add an Axes to the figure
-        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp,  shadow=True,counterclock=False )
+        self.ax1.pie(self.stockSplitExp, radius=1, labels=self.stockListExp, shadow=True, counterclock=False)
         self.chart1 = FigureCanvasTkAgg(self.fig1, self.canvas1)
         self.chart1.get_tk_widget().pack()
         self.canvas1.pack()
